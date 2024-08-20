@@ -1,5 +1,10 @@
 # c. Se agregue una sentencia que valide que la edad ingresada por el usuario es
 # numérica.
+#d. Se agregue una función que encapsule el cálculo del equivalente de la edad en 
+#días y que tome como parámetros las variables hora_local, anio_comienzo y
+#anio_fin.
+
+
 
 import time
 from calendar import isleap
@@ -54,6 +59,30 @@ dias += hora_local.tm_mday
 # imprimir la edad del usuario
 print("La edad de %s es %d años o " % (nombre, anios), end="")
 print("%d meses o %d días" % (meses, dias))
+
+####### PUNTO D ENCAMPSULAR FUNCION ########
+def equivalente_en_dias(hora_local, anio_comienzo, anio_fin):
+    print("####### punto d ######")
+    hora_local = time.localtime(time.time())
+    bisiesto = 0
+    for a_bisiesto in range(anio_comienzo, anio_fin):
+        if isleap(a_bisiesto): bisiesto = bisiesto + 1
+    print(f"Desde el año {anio_comienzo} hasta el {anio_fin} hay {bisiesto} año bisiestos")
+    print(f"En {bisiesto} años bisiestos hay {bisiesto * 366} dias.")
+    años_no_bi = edad - bisiesto
+    print(f"En {años_no_bi} años hay {años_no_bi * 365} dias.")
+    print(f"Total de dias {(bisiesto * 366)+ (años_no_bi * 365)+(hora_local.tm_mday)}")
+    return (bisiesto * 366) + ((anio_fin - anio_comienzo) * 365) 
+
+dias = equivalente_en_dias(hora_local, anio_comienzo, anio_fin) + hora_local.tm_mday
+print(f"En {edad} años transcurrieron {meses} y  {dias} dias!!")
+print(f"El año  de inicio es: {anio_comienzo} y el año actual es {anio_fin}")
+print("###### fin punto d ######")
+
+
+
+
+
 
 
 
