@@ -40,28 +40,32 @@ anios = edad
 anio_comienzo = int(hora_local.tm_year) - anios
 anio_fin = anio_comienzo + anios
 meses = anios * 12 + hora_local.tm_mon
-dias = 0
+
+def equivalente_en_dias(hora_local, anio_comienzo, anio_fin):
+    dias = 0
 
 # calcular los días
-for a in range(anio_comienzo, anio_fin):
-    if anio_bisiesto(a):
-        dias += 366
+    for a in range(anio_comienzo, anio_fin):
+        if anio_bisiesto(a):
+            dias += 366
     else:
         dias += 365
 
 # agregar los días transcurridos en este año
-for m in range(1, hora_local.tm_mon):
-    dias += calcular_dias_mes(m, anio_bisiesto(hora_local.tm_year))
+    for m in range(1, hora_local.tm_mon):
+        dias += calcular_dias_mes(m, anio_bisiesto(hora_local.tm_year))
 
 # agregar los días transcurridos en este mes
-dias += hora_local.tm_mday
+    dias += hora_local.tm_mday
+    return dias
+dias = equivalente_en_dias(hora_local, anio_comienzo, anio_fin)
 
 # imprimir la edad del usuario
 print("La edad de %s es %d años o " % (nombre, anios), end="")
 print("%d meses o %d días" % (meses, dias))
 
 ####### PUNTO D ENCAMPSULAR FUNCION ########
-def equivalente_en_dias(hora_local, anio_comienzo, anio_fin):
+"""def equivalente_en_dias(hora_local, anio_comienzo, anio_fin):
     print("####### punto d ######")
     hora_local = time.localtime(time.time())
     bisiesto = 0
@@ -77,7 +81,7 @@ def equivalente_en_dias(hora_local, anio_comienzo, anio_fin):
 dias = equivalente_en_dias(hora_local, anio_comienzo, anio_fin) + hora_local.tm_mday
 print(f"En {edad} años transcurrieron {meses} y  {dias} dias!!")
 print(f"El año  de inicio es: {anio_comienzo} y el año actual es {anio_fin}")
-print("###### fin punto d ######")
+print("###### fin punto d ######")"""
 
 
 
