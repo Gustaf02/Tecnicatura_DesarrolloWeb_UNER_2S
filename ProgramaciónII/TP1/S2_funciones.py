@@ -43,19 +43,15 @@ meses = anios * 12 + hora_local.tm_mon
 def equivalente_en_dias(hora_local, anio_comienzo, anio_fin):
     dias = 0
 
-# calcular los días
+# calcular los dias
     for a in range(anio_comienzo, anio_fin):
-        if anio_bisiesto(a):
-            dias += 366
-    else:
-        dias += 365
-
+        if (anio_bisiesto(a)): dias = dias + 366
+        else: dias = dias + 365
 # agregar los días transcurridos en este año
     for m in range(1, hora_local.tm_mon):
-        dias += calcular_dias_mes(m, anio_bisiesto(hora_local.tm_year))
-
+        dias = dias + calcular_dias_mes(m, anio_bisiesto(hora_local.tm_year))
 # agregar los días transcurridos en este mes
-    dias += hora_local.tm_mday
+    dias = dias + hora_local.tm_mday
     return dias
 dias = equivalente_en_dias(hora_local, anio_comienzo, anio_fin)
 

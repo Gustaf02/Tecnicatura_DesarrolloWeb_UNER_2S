@@ -11,9 +11,9 @@
 
 ### Programa Principal ###
 
-from funciones import*
+
 import time
-from S2_Ej_c import  equivalente_en_dias, anio_bisiesto, calcular_dias_mes
+from S2_funciones import  equivalente_en_dias, anio_bisiesto, calcular_dias_mes
 
     
 # ingreso de datos del usuario
