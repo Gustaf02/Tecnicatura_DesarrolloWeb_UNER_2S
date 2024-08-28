@@ -10,7 +10,7 @@ en caso contrario'''
 # print (es_abc("abc"))
 # print (es_abc("str"))
 
-# A continuación, se presenta el mismo ejercicio donde se solicita que el usuario ingrese datos: 
+# A continuación, se presenta el ejercicio de otra manera donde se solicita que el usuario ingrese datos: 
 
 def es_abc(palabra):
     # Convertimos la palabra a minúsculas para asegurar consistencia en la comparación

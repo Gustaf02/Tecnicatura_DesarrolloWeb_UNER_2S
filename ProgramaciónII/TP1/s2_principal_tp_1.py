@@ -1,3 +1,5 @@
+# El programa principal importa a S2_funciones_tp1.py
+
 import time
 from s2_funciones_tp1 import calcular_dias, validar_edad
 
