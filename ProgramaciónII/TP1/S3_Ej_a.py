@@ -16,7 +16,7 @@ def suma(numero):
 
 # Bloque principal
 while True:
-    numero = input("Ingresa un número entero (un solo dígito entre 0 y 9, incluyendo al 10): ")
+    numero = input("Ingresa un número entero (un solo dígito entre 0 y 9, se permite incluir al 10): ")
     
     if numero.isdigit():  # Verifica si es un número entero positivo
         numero = int(numero)
