@@ -8,8 +8,10 @@ class Pizza :
         self.variedad = variedad
 
 
-    def  obtener_variedad ():
-        variedad = "estilos"
+    def  obtener_variedad (self):
         return self.variedad
+    
+
+
 
 

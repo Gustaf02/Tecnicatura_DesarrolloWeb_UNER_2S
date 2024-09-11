@@ -10,25 +10,34 @@ class Maestro_pizzero :
         self.nombre = nombre
 
     def tomar_pedido (self, variedad):
-        self.variedad = variedad.Pizza
+        self.variedad = variedad
+        variedad = Pizza(input("opcion 1 tomar pedido: "))
         self.pizzas_por_cocinar.append(self.variedad)
+        print(variedad)
+        print(id(variedad))
 
-    def cocinar (self):
-        self.obtener_pizzas_por_entregar.appen(self.pizzas_por_cocinar)
+    def cocinar (self ):
+        self.pizzas_por_entregar.append(self.pizzas_por_cocinar)
+        if  self.pizzas_por_entregar > self.pizzas_por_entregar[0:1:2]:
+            print("en el horno solo se pueden cocinar 5 pizzas.")
+        else:
+            print("?????")
 
+    def entregar (self):
+        self.pizzas_por_entregar = self.pizzas_por_entregar
 
-    def entregar ():
-        pass
+    def obtener_nombre (self):
+        self.nombre = self.nombre
 
-    def obtener_nombre ():
-        pass
-
-    def obtener_pizzas_por_cocicar ():
+    def obtener_pizzas_por_cocicar (self):
         """Pizza[]"""
-        pass
-    def obtener_pizzas_por_entregar ():
+        return self.pizzas_por_cocicar
+    
+    def obtener_pizzas_por_entregar (self):
         """Pizza []"""
         pass
+        #return self.pizzas_por_entregar
+    
 
 
 
