@@ -3,7 +3,7 @@ from  mozo import Mozo
 from pizza import Pizza
 class Tester_pizzeria:
     def main():
-        #pizza = Pizza("NAPO")
+        #pizza = Pizza("napo")
         pizzero = Maestro_pizzero("PIPO")
         mozo1 = Mozo("CARLOS")
         #mozo2 = Mozo("JUAN")
@@ -21,10 +21,10 @@ class Tester_pizzeria:
                 #crear_pizza = Pizza(input("opcion 1 tomar pedido: "))
                 #print(crear_pizza)
                 #print(id(crear_pizza))
-                pizzero.tomar_pedido(Pizza.establecer_variedad)
+                pizzero.tomar_pedido()
 
 
-    
+
 
                 """Tomo los objetos creados con crear_pizza.variedad y los agrego apizzas_por_cocinar """
                 #pizzero.pizzas_por_cocinar.append(crear_pizza.variedad)

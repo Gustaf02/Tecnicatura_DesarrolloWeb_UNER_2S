@@ -11,7 +11,8 @@ class Maestro_pizzero :
 
     def tomar_pedido (self, variedad):
         self.variedad = variedad
-        variedad = Pizza(input("opcion 1 tomar pedido: "))
+        variedad = input("opcion 1 tomar pedido: ")
+        variedad = Pizza(variedad)
         self.pizzas_por_cocinar.append(self.variedad)
         print(variedad)
         print(id(variedad))
