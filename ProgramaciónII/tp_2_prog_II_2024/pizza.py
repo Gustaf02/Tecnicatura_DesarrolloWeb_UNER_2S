@@ -1,15 +1,15 @@
 
 
 class Pizza :
-    def __init__(self, variedad):
-        self.variedad = variedad
+    def __init__(self, var):
+        self.var = var
     
-    def establecer_variedad (self, variedad):
-        self.variedad = variedad
+    def establecer_variedad (self, var):
+        self.var = var
 
 
     def  obtener_variedad (self):
-        return self.variedad
+        return self.var
     
 
 
