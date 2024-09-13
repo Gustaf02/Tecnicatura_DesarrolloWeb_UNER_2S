@@ -21,25 +21,29 @@ class Tester_pizzeria:
             
 
         while True:
-            print(" 1 Tomar pedido Mozo 1","\n")
-                 # " 2 ??????","\n", 
-                  #" 4 o mas Salir")
+            print(" 1 Tomar pedido Pizzero. ","\n"
+                  " 2 Pizzas a cocinar. ""\n"
+                  " 3 Cocinar pizzas. ""\n"
+                  " 4 Pizzas por entregar. ""\n"
+                  " 5 Entregar pizzas. ""\n")
             
             opciones = int(input("Ingrese una opcion: "))
 
             if opciones == 1:
-
                 pizzero.tomar_pedido("")
-                pizzero.cocinar()
-                pizzero.entregar()
-
+                
             elif opciones == 2:
                 pizzero.obtener_pizzas_por_cocicar()
+
             elif opciones == 3:
                 pizzero.obtener_pizzas_por_entregar()
-            elif opciones == 4:
-                pass
 
+            elif opciones == 4:
+                pizzero.cocinar()
+                 
+            elif opciones == 5:
+                pizzero.entregar()
+               
             else:
                 break
 
