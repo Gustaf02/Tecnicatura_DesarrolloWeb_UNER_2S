@@ -3,33 +3,15 @@ from  mozo import Mozo
 from pizza import Pizza
 class Tester_pizzeria:
     def main():
-        #pizza = Pizza("napo")
+       
         pizzero = Maestro_pizzero("PIPO")
-        mozo1 = Mozo("CARLOS")
+        #mozo1 = Mozo("CARLOS")
         #mozo2 = Mozo("JUAN")
         #print(f"El nombre del pizzero es {pizzero.nombre}")
         #print(f"El nombre del mozo es {mozo1.nombre}")
         #print(f"El nombre del mozo es {mozo2.nombre}")
         #print(pizzero)
-
-        while True:
-            print("  1 Tomar pedido Mozo 1","\n"," 2 ??????","\n", " 4 o mas Salir")
-            opciones = int(input("Ingrese una opcion: "))
-
-            if opciones == 1:
-                """Creo el objeto pizza de la clase pizza"""
-                #crear_pizza = Pizza(input("opcion 1 tomar pedido: "))
-                #print(crear_pizza)
-                #print(id(crear_pizza))
-                pizzero.tomar_pedido("")
-                pizzero.cocinar()
-                #pizzero.obtener_pizzas_por_entregar()
-            
-
- 
-
-                """Tomo los objetos creados con crear_pizza.variedad y los agrego apizzas_por_cocinar """
-                #pizzero.pizzas_por_cocinar.append(crear_pizza.variedad)
+        #pizzero.pizzas_por_cocinar.append(crear_pizza.variedad)
                 #print(f"Las pizzas por cocinar : {pizzero.pizzas_por_cocinar}")
                 #order_de_pizzas = pizzero.pizzas_por_cocinar[0]
                 #pizzero.pizzas_por_cocinar.remove(order_de_pizzas)
@@ -38,6 +20,18 @@ class Tester_pizzeria:
                 #print(f"Las pizzas por entregar: {pizzero.pizzas_por_entregar}")
             
 
+        while True:
+            print(" 1 Tomar pedido Mozo 1","\n")
+                 # " 2 ??????","\n", 
+                  #" 4 o mas Salir")
+            
+            opciones = int(input("Ingrese una opcion: "))
+
+            if opciones == 1:
+
+                pizzero.tomar_pedido("")
+                pizzero.cocinar()
+                pizzero.entregar()
 
             elif opciones == 2:
                 pass
