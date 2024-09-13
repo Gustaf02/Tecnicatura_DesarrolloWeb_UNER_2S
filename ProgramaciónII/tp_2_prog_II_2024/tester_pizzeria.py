@@ -28,15 +28,16 @@ class Tester_pizzeria:
             opciones = int(input("Ingrese una opcion: "))
 
             if opciones == 1:
-
                 pizzero.tomar_pedido("")
                 pizzero.cocinar()
                 pizzero.entregar()
 
             elif opciones == 2:
                 pizzero.obtener_pizzas_por_cocicar()
+
             elif opciones == 3:
                 pizzero.obtener_pizzas_por_entregar()
+                
             elif opciones == 4:
                 pass
 
