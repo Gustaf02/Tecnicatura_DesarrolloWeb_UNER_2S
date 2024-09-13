@@ -19,31 +19,22 @@ class Maestro_pizzero :
         #print(id(self.piz))
 
     def cocinar (self ):
-         if len(self.pizzas_por_cocinar) > 2:
+         if len(self.pizzas_por_cocinar)>0:
             orden_pizzas = self.pizzas_por_cocinar[0]
             self.pizzas_por_cocinar.remove(orden_pizzas)
             self.pizzas_por_entregar.append(orden_pizzas)
-            print(f"Pizzas por entregar: {self.pizzas_por_entregar}")
-        
-    """def entregar (self):
-        self.pizzas_entregadas = []
-        if len(self.pizzas_por_entregar) > 3:
-            pizzas = self.pizzas_por_entregar[0]
-            self.pizzas_por_entregar.remove(pizzas)
-            self.pizzas_entregadas.append(pizzas)
-            print(f"Pizzas entregadas: {self.pizzas_entregadas}")"""
-    def entregar (self):
-        if len(self.pizzas_por_entregar) > 2:
-            return print(self.pizzas_por_entregar[:2])
-    
+            #print(f"Pizzas por entregar: {self.pizzas_por_entregar}")
    
-
+    #Gustavo toma los 2 objetos de la lista pizzas_por_entregar y eliminarlos
+    def entregar (self):
+        if len(self.pizzas_por_entregar) > 0:
+            return print(self.pizzas_por_entregar[:2])
         
     def obtener_nombre (self):
         self.nombre = self.nombre
         return print(self.nombre)
 
-    def obtener_pizzas_por_cocicar (self):
+    def obtener_pizzas_por_cocinar (self):
         return print(self.pizzas_por_cocinar)
     
     def obtener_pizzas_por_entregar (self):

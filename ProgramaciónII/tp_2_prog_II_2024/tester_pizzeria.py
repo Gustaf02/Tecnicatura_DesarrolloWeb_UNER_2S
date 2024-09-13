@@ -5,21 +5,7 @@ class Tester_pizzeria:
     def main():
        
         pizzero = Maestro_pizzero("PIPO")
-        #mozo1 = Mozo("CARLOS")
-        #mozo2 = Mozo("JUAN")
-        #print(f"El nombre del pizzero es {pizzero.nombre}")
-        #print(f"El nombre del mozo es {mozo1.nombre}")
-        #print(f"El nombre del mozo es {mozo2.nombre}")
-        #print(pizzero)
-        #pizzero.pizzas_por_cocinar.append(crear_pizza.variedad)
-                #print(f"Las pizzas por cocinar : {pizzero.pizzas_por_cocinar}")
-                #order_de_pizzas = pizzero.pizzas_por_cocinar[0]
-                #pizzero.pizzas_por_cocinar.remove(order_de_pizzas)
-                #pizzero.pizzas_por_entregar.append(order_de_pizzas)
-                #print(f"Las pizzas por cocinar : {pizzero.pizzas_por_cocinar}")
-                #print(f"Las pizzas por entregar: {pizzero.pizzas_por_entregar}")
-            
-
+       
         while True:
             print(" 1 Tomar pedido Pizzero. ","\n"
                   " 2 Pizzas a cocinar. ""\n"
@@ -32,19 +18,15 @@ class Tester_pizzeria:
                 pizzero.tomar_pedido("")
                 
             elif opciones == 2:
-                pizzero.obtener_pizzas_por_cocicar()
+                pizzero.obtener_pizzas_por_cocinar()
 
             elif opciones == 3:
-                pizzero.obtener_pizzas_por_entregar()
-<<<<<<< HEAD
+                pizzero.cocinar()
                 
-            elif opciones == 4:
-                pass
-=======
->>>>>>> 61258ed6db1616ef2a27ef4a6becc00632a3be8f
 
             elif opciones == 4:
-                pizzero.cocinar()
+                pizzero.obtener_pizzas_por_entregar()
+                
                  
             elif opciones == 5:
                 pizzero.entregar()
