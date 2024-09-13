@@ -44,10 +44,10 @@ class Maestro_pizzero :
         return print(self.nombre)
 
     def obtener_pizzas_por_cocicar (self):
-        return self.pizzas_por_cocinar
+        return print(self.pizzas_por_cocinar)
     
     def obtener_pizzas_por_entregar (self):
-        return self.pizzas_por_cocinar
+        return print(self.pizzas_por_entregar)
     
 
 

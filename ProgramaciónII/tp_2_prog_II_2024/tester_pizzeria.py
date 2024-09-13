@@ -34,9 +34,9 @@ class Tester_pizzeria:
                 pizzero.entregar()
 
             elif opciones == 2:
-                pass
+                pizzero.obtener_pizzas_por_cocicar()
             elif opciones == 3:
-               pass
+                pizzero.obtener_pizzas_por_entregar()
             elif opciones == 4:
                 pass
 
