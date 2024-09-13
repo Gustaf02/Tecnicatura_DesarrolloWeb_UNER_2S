@@ -28,7 +28,6 @@ class Tester_pizzeria:
                   " 5 Entregar pizzas. ""\n")
             
             opciones = int(input("Ingrese una opcion: "))
-
             if opciones == 1:
                 pizzero.tomar_pedido("")
                 
