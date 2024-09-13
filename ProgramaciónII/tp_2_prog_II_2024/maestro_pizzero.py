@@ -25,13 +25,16 @@ class Maestro_pizzero :
             self.pizzas_por_entregar.append(orden_pizzas)
             print(f"Pizzas por entregar: {self.pizzas_por_entregar}")
         
-    def entregar (self):
+    """def entregar (self):
         self.pizzas_entregadas = []
         if len(self.pizzas_por_entregar) > 3:
             pizzas = self.pizzas_por_entregar[0]
             self.pizzas_por_entregar.remove(pizzas)
             self.pizzas_entregadas.append(pizzas)
-            print(f"Pizzas entregadas: {self.pizzas_entregadas}")
+            print(f"Pizzas entregadas: {self.pizzas_entregadas}")"""
+    def entregar (self):
+        if len(self.pizzas_por_entregar) > 2:
+            return print(self.pizzas_por_entregar[:2])
     
    
 
