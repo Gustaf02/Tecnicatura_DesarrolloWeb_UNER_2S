@@ -1,34 +1,39 @@
-from  maestro_pizzero import  Maestro_pizzero
-from  mozo import Mozo
+from maestro_pizzero import Maestro_pizzero
+from mozo import Mozo
 from pizza import Pizza
 
 class TesterPizzeria:
+    @staticmethod
     def main():
-        
         pizzero = Maestro_pizzero("PIPO")
         mozo1 = Mozo("Gustavo")
         mozo2 = Mozo("Leonardo")
 
         while True:
-            print(" 1. Tomar pedido Pizzero. ","\n"
-                  " 2. Ver pizzas por cocinar. ","\n"
-                  " 3. Cocinar pizzas. ","\n"
-                  " 4. Ver pizzas por entregar. ","\n"
-                  " 5. Entregar pizzas con Gustavo. ","\n"
-                  " 6. Entregar pizzas con Luis. ","\n"
-                  " 7. Salir. ")
+            print("\nMenu:")
+            print(" 1. Tomar pedido Pizzero.")
+            print(" 2. Ver pizzas por cocinar.")
+            print(" 3. Cocinar pizzas.")
+            print(" 4. Ver pizzas por entregar.")
+            print(" 5. Entregar pizzas con Gustavo.")
+            print(" 6. Entregar pizzas con Leonardo.")
+            print(" 7. Salir.")
 
-            opcion = int(input("Ingrese una opción: "))
+            # Validación de la entrada para evitar que un valor no numérico cause un error
+            try:
+                opcion = int(input("Ingrese una opción: "))
+            except ValueError:
+                print("Entrada no válida. Por favor ingrese un número.")
+                continue  # Regresa al inicio del loop para pedir la opción de nuevo
 
             if opcion == 1:
-                pizzero.tomar_pedido("")
-                
+                pizzero.tomar_pedido()
+
             elif opcion == 2:
                 pizzero.obtener_pizzas_por_cocinar()
 
             elif opcion == 3:
                 pizzero.cocinar()
-               
 
             elif opcion == 4:
                 pizzero.obtener_pizzas_por_entregar()
@@ -36,16 +41,20 @@ class TesterPizzeria:
             elif opcion == 5:
                 mozo1.tomar_pizzas(pizzero.pizzas_por_entregar)
                 mozo1.servir_pizzas()
-                pizzero.obtener_pizzas_por_entregar()  
+                pizzero.obtener_pizzas_por_entregar()
 
             elif opcion == 6:
                 mozo2.tomar_pizzas(pizzero.pizzas_por_entregar)
                 mozo2.servir_pizzas()
-                pizzero.obtener_pizzas_por_entregar()  
+                pizzero.obtener_pizzas_por_entregar()
 
             elif opcion == 7:
+                print("Saliendo del programa...")
                 break
 
+            else:
+                print("Opción no válida, por favor elija una opción del 1 al 7.")
+
 if __name__ == '__main__':
-    tester_pizzeria = TesterPizzeria
-    tester_pizzeria.main()
+    testerPizzeria = TesterPizzeria()
+    TesterPizzeria.main()
