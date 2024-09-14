@@ -11,8 +11,9 @@ class Maestro_pizzero :
 
     def tomar_pedido (self, var):
         var = (input("opcion 1 tomar pedido: "))
-        self.piz = Pizza(var)
-        self.pizzas_por_cocinar.append(self.piz.var)
+        self.piza_de = Pizza(var)
+        self.pizzas_por_cocinar.append(self.piza_de.var)
+        print(F"Objeto creado por pizzero: {self.piz}")
         
     def cocinar (self ):
          if len(self.pizzas_por_cocinar)>0:
