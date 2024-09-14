@@ -13,11 +13,7 @@ class Maestro_pizzero :
         var = (input("opcion 1 tomar pedido: "))
         self.piz = Pizza(var)
         self.pizzas_por_cocinar.append(self.piz.var)
-        #print(f"Pizzas por cocinar: {self.pizzas_por_cocinar}")
         
-        #print(self.piz)
-        #print(id(self.piz))
-
     def cocinar (self ):
          if len(self.pizzas_por_cocinar)>0:
             orden_pizzas = self.pizzas_por_cocinar[0]

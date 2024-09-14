@@ -8,8 +8,8 @@ class Pizza :
         self.var = var
 
 
-    def  obtener_variedad (self):
-        return self.var
+    def  obtener_variedad (self, var):
+        return print(self.var)
     
 
 

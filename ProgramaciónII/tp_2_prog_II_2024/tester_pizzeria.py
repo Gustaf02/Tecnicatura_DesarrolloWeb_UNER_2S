@@ -3,6 +3,9 @@ from  mozo import Mozo
 from pizza import Pizza
 class Tester_pizzeria:
     def main():
+
+        mozo1 = Mozo("CARLLOS")
+        
        
         pizzero = Maestro_pizzero("PIPO")
        
@@ -30,13 +33,15 @@ class Tester_pizzeria:
                  
             elif opciones == 5:
                 pizzero.entregar()
+
+            elif opciones == 6:
+                mozo1.tomar_pizzas()
+
                
             else:
                 break
 
-
-
-
+  
 
 
 if __name__ == '__main__':

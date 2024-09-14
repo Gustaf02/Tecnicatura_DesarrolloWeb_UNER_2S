@@ -7,17 +7,17 @@ class Mozo:
         self.nombre = nombre
         self.pizzas = []
 
-    def establecer_nombre (self, nom):
-        nombre = self.nom
+    def establecer_nombre (self, nombre):
+        nombre = self.nombre
 
     def tomar_pizzas (self, pizzas):
+        pizzas = Maestro_pizzero
+        pizzas = pizzas.cocinar
+        self.pizzas.append(pizzas)
+        #pizzas.extend(self.pizzas)
+        return print(self.pizzas)
         
-        pizzas = self.pizzas(self.pizzas_por_entregar)
-
-
-        
- 
-
+      
         
 
     def obtener_nombre (nombre):
