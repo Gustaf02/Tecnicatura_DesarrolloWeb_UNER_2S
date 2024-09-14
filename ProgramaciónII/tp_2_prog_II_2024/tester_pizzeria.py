@@ -16,6 +16,7 @@ class Tester_pizzeria:
                   " 4 Pizzas por entregar. ""\n"
                   " 5 Entregar pizzas. ""\n"
                   " 6 Mozo tomar pizzas. ""\n")
+                
             
             opciones = int(input("Ingrese una opcion: "))
             if opciones == 1:
@@ -36,7 +37,11 @@ class Tester_pizzeria:
                 pizzero.entregar()
 
             elif opciones == 6:
-                mozo1.tomar_pizzas(pizzero.entregar())
+                mozo1.tomar_pizzas([])  
+
+            elif opciones == 7:
+                mozo1.obtener_estado_libre()
+
 
                
             else:
@@ -48,3 +53,9 @@ class Tester_pizzeria:
 if __name__ == '__main__':
     tester_pizeria = Tester_pizzeria
     tester_pizeria.main()
+
+"""pizzas = Pizza(Maestro_pizzero.entregar)
+        #pizzas = pizzas.cocinar
+        self.pizzas.extend(Maestro_pizzero.entregar.var)
+        #pizzas.extend(self.pizzas
+        return print(F"Inprime desde tomar_pizza: {self.pizzas}")"""
