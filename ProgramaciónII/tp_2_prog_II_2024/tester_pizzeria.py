@@ -14,7 +14,8 @@ class Tester_pizzeria:
                   " 2 Pizzas a cocinar. ""\n"
                   " 3 Cocinar pizzas. ""\n"
                   " 4 Pizzas por entregar. ""\n"
-                  " 5 Entregar pizzas. ""\n")
+                  " 5 Entregar pizzas. ""\n"
+                  " 6 Mozo tomar pizzas. ""\n")
             
             opciones = int(input("Ingrese una opcion: "))
             if opciones == 1:
@@ -35,7 +36,7 @@ class Tester_pizzeria:
                 pizzero.entregar()
 
             elif opciones == 6:
-                mozo1.tomar_pizzas()
+                mozo1.tomar_pizzas(pizzero.entregar())
 
                
             else:

@@ -11,11 +11,11 @@ class Mozo:
         nombre = self.nombre
 
     def tomar_pizzas (self, pizzas):
-        pizzas = Maestro_pizzero
-        pizzas = pizzas.cocinar
+        pizzas = Pizza(Maestro_pizzero.entregar)
+        #pizzas = pizzas.cocinar
         self.pizzas.append(pizzas)
         #pizzas.extend(self.pizzas)
-        return print(self.pizzas)
+        return print(F"Inprime desde tomar_pizza: {self.pizzas}")
         
       
         
