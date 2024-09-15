@@ -1,12 +1,15 @@
-# Habiendo analizado el diagrama, genere la clase Mozo con los atributos y servicios
-# mencionados en dicho diagrama.
-# a. El atributo pizzas se inicializa como una lista vacía.
-# b. El comando tomarPizzas agrega los objetos de la clase Pizza referenciados por
-# el parámetro formal pizzas. El mozo puede tomar hasta un máximo de 2 pizzas.
-# c. servirPizzas limpia la lista pizzas, haciendo entrega de los pedidos a los clientes.
-# d. obtenerEstadoLibre debe retornar True si es que la lista referenciada por el
-# atributo pizzastiene una longitud de entre 0 y 1. Así mismo, debe retornar False
-# si su tamaño es igual a 2.
+# Construya un programa utilizando las clases proveedoras presentadas en los puntos 1,
+# 2 y 3 que permita:
+# a. Crear objetos de tipo MaestroPizzero, Mozo y Pizza.
+# i. Para una exacta representación de nuestra pizzería, debe limitarse a un
+# único objeto de tipo MaestroPizzero y dos objetos de la clase Mozo.
+# b. Enviar los mensajes tomarPedido, cocinar y entregar al objeto de la clase
+# MaestroPizzero.
+# c. Enviar los mensajes tomarPizzas y servirPIzzas a los objetos de la clase Mozo
+# creados en el punto a.
+# Para la construcción de dicho programa crear una clase de nombre TesterPizzeria
+# que actúe como cliente de las clases proveedoras MaestroPizzero, Mozo y Pizza, cuyo
+# único servicio sea de nombre main, que ejecute los puntos descriptos anteriormente.
 
 from maestro_pizzero import Maestro_pizzero
 from mozo import Mozo
