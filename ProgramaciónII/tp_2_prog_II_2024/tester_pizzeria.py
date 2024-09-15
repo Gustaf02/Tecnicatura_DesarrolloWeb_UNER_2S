@@ -1,61 +1,77 @@
-from  maestro_pizzero import  Maestro_pizzero
-from  mozo import Mozo
-from pizza import Pizza
-class Tester_pizzeria:
-    def main():
+# Habiendo analizado el diagrama, genere la clase Mozo con los atributos y servicios
+# mencionados en dicho diagrama.
+# a. El atributo pizzas se inicializa como una lista vacía.
+# b. El comando tomarPizzas agrega los objetos de la clase Pizza referenciados por
+# el parámetro formal pizzas. El mozo puede tomar hasta un máximo de 2 pizzas.
+# c. servirPizzas limpia la lista pizzas, haciendo entrega de los pedidos a los clientes.
+# d. obtenerEstadoLibre debe retornar True si es que la lista referenciada por el
+# atributo pizzastiene una longitud de entre 0 y 1. Así mismo, debe retornar False
+# si su tamaño es igual a 2.
 
-        mozo1 = Mozo("CARLLOS")
-        
-       
+from maestro_pizzero import Maestro_pizzero
+from mozo import Mozo
+from pizza import Pizza
+
+class TesterPizzeria:
+    @staticmethod
+    def main():
+        # a) Se crean los objetos de tipo MaestroPizzero y Mozo
         pizzero = Maestro_pizzero("PIPO")
-       
+        # mozo1 = Mozo("Gustavo")
+        # mozo2 = Mozo("Leonardo")
+
+# Para realizar el ejercicio 4 del TP2 se instancian los objetos y se contestan las preguntas solicitadas en el 
+# archivo denominado integrantes.pdf:
+        mozo1 = Mozo('Alfredo')
+        mozo2 = Mozo('Alfredo')
+
+# A continuación, se muestra el menú de opciones
         while True:
-            print(" 1 Tomar pedido Pizzero. ","\n"
-                  " 2 Pizzas a cocinar. ""\n"
-                  " 3 Cocinar pizzas. ""\n"
-                  " 4 Pizzas por entregar. ""\n"
-                  " 5 Entregar pizzas. ""\n"
-                  " 6 Mozo tomar pizzas. ""\n")
-                
-            
-            opciones = int(input("Ingrese una opcion: "))
-            if opciones == 1:
-                pizzero.tomar_pedido("")
-                
-            elif opciones == 2:
+            print("\nMenu:")
+            print(" 1. Tomar pedido Pizzero.")
+            print(" 2. Ver pizzas por cocinar.")
+            print(" 3. Cocinar pizzas.")
+            print(" 4. Ver pizzas por entregar.")
+            print(" 5. Entregar pizzas con mozo1.")
+            print(" 6. Entregar pizzas con mozo2.")
+            print(" 7. Salir.")
+
+            # Validación de la entrada para evitar que un valor no numérico cause un error
+            try:
+                opcion = int(input("Ingrese una opción: "))
+            except ValueError:
+                print("Entrada no válida. Por favor ingrese un número.")
+                continue  # Regresa al inicio del loop para pedir la opción de nuevo
+
+            if opcion == 1:
+                pizzero.tomar_pedido()
+
+            elif opcion == 2:
                 pizzero.obtener_pizzas_por_cocinar()
 
-            elif opciones == 3:
+            elif opcion == 3:
                 pizzero.cocinar()
-                
 
-            elif opciones == 4:
+            elif opcion == 4:
                 pizzero.obtener_pizzas_por_entregar()
-                
-                 
-            elif opciones == 5:
-                pizzero.entregar()
 
-            elif opciones == 6:
-                mozo1.tomar_pizzas([])  
+            elif opcion == 5:
+                mozo1.tomar_pizzas(pizzero.pizzas_por_entregar)
+                mozo1.servir_pizzas()
+                pizzero.obtener_pizzas_por_entregar()
 
-            elif opciones == 7:
-                mozo1.obtener_estado_libre()
+            elif opcion == 6:
+                mozo2.tomar_pizzas(pizzero.pizzas_por_entregar)
+                mozo2.servir_pizzas()
+                pizzero.obtener_pizzas_por_entregar()
 
-
-               
-            else:
+            elif opcion == 7:
+                print("Saliendo del programa...")
                 break
 
-  
-
+            else:
+                print("Opción no válida, por favor elija una opción del 1 al 7.")
 
 if __name__ == '__main__':
-    tester_pizeria = Tester_pizzeria
-    tester_pizeria.main()
-
-"""pizzas = Pizza(Maestro_pizzero.entregar)
-        #pizzas = pizzas.cocinar
-        self.pizzas.extend(Maestro_pizzero.entregar.var)
-        #pizzas.extend(self.pizzas
-        return print(F"Inprime desde tomar_pizza: {self.pizzas}")"""
+    testerPizzeria = TesterPizzeria()
+    TesterPizzeria.main()
