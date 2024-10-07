@@ -1,18 +1,31 @@
 from pizza import Pizza
+from orden import Orden
 
 class MaestroPizzero:
 
     def __init__(self, nom: str):
-        self.__nombre = nom
-        self.__pizzasPorCocinar = []
-        self.__pizzasPorEntregar = []
+        self.nombre = nom
+        self.ordenes_por_cocininar = []
+        
 
     def establecerNombre(self, nom: str):
         self.__nombre = nom
 
-    def tomarPedido(self, var: str):
-        pizza = Pizza(var)
-        self.__pizzasPorCocinar.append(pizza)
+    def tomar_pedido(self, orden):
+        nro = int(input ("Igrese el numero de orden: "))
+        var = input("Ingrese la variedad: ")
+        var = Pizza(var)
+        orden = Orden(nro,var)
+        orden.establecer_nro_orden(nro)
+        orden.establecer_pizzas(var.obtener_variedad)
+        self.ordenes_por_cocininar.append(orden)
+
+        print(orden.obtener_nro_order, orden.pizzas)
+        print(nro)
+        print(var)
+        print(orden.ESTADO_INICIAL)
+     
+
 
     def cocinar(self):
         for pizza in self.__pizzasPorCocinar:
@@ -38,3 +51,9 @@ class MaestroPizzero:
     
     def obtenerPizzasPorEntregar(self):
         return self.__pizzasPorEntregar
+    
+pi = MaestroPizzero("walter")
+
+pi.tomar_pedido(1)
+
+
