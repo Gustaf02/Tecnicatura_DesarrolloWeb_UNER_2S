@@ -7,7 +7,8 @@ class Orden :
 
     def __init__(self, num_orden: int, pizzas: Pizza): 
         self.num_orden = num_orden
-        self.pizzas = pizzas
+        self.pizzas = Pizza(pizzas)
+        pizzas = []
         self.estado_orden = 1
 
     """COMANDOS"""
@@ -23,6 +24,7 @@ class Orden :
         if estado == 1:
             print("Orden: " + str(self.num_orden) + " (ESTADO_INICIAL):")
         elif estado == 2:
+            self.ordenes_por_cocininar
             print("Orden:" + str(self.num_orden) + " (ESTADO_PARA_ENTREGAR):")
         elif estado == 3:
             print("Orden: " + str(self.num_orden) + " (ESTADO_ENTREGADA):")

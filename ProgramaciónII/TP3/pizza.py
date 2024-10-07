@@ -7,7 +7,7 @@ class Pizza:
     def __init__(self, var: str):
         self.__variedad = var
 
-    def establecerVariedad(self, var: str, varied):
+    def establecer_variedad(self, var: str):
         self.__variedad = var
 
     def establecer_estado_interno (self, estado: int):

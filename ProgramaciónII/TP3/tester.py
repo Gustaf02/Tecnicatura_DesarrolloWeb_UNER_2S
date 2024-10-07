@@ -10,22 +10,16 @@ class Tester:
         pizzero = MaestroPizzero("walter")
         mozo_1 = Mozo('Gustavo')
         mozo_2 = Mozo('Leonardo')
+        #orden = Orden(pizzero.tomar_pedido(Pizza.establecer_variedad(self.var)))
+        #print(f"que imprime??., {Orden.obtener_nro_order(pizzero.tomar_pedido())}")
 
-        pizzero.establecerNombre('WALTER')
-        mozo_1.establecerNombre('GUSTAVO')
-        mozo_2.establecerNombre('LEONARDO')
-        pizzero.establecerNombre('WALTERrrrrr')
-
-        print(pizzero)
-        print (mozo_1)
-        print (mozo_2) 
-
-        print(pizzero.obtenerNombre())
+       
+      
 
         while True:
             print("\nMenu:")
             print(" 1. Tomar pedido Pizzero.")
-            print(" 2. Ver pizzas por cocinar.")
+            print(" 2. Agregar pizza a la orden.")
             print(" 3. Cocinar pizzas.")
             print(" 4. Ver pizzas por entregar.")
             print(" 5. Entregar pizzas con mozo1.")
@@ -40,7 +34,7 @@ class Tester:
                 continue  # Regresa al inicio del loop para pedir la opción de nuevo
 
             if opcion == 1:
-                pizzero.tomar_pedido(1)
+                pizzero.tomar_pedido(2)
             elif opcion == 2:
                 pizzero.obtener_pizzas_por_cocinar()
 

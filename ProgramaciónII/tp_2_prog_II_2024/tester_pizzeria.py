@@ -20,6 +20,7 @@ class TesterPizzeria:
     def main():
         # a) Se crean los objetos de tipo MaestroPizzero y Mozo
         pizzero = Maestro_pizzero("PIPO")
+        print(pizzero.nombre)
         # mozo1 = Mozo("Gustavo")
         # mozo2 = Mozo("Leonardo")
 
