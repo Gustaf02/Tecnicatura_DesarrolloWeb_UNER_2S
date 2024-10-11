@@ -17,7 +17,7 @@ class Pizza:
     def obtener_variedad(self):
         return self.__variedad
     
-    def  ontener_estado_interno (self):
+    def  obtener_estado_interno (self):
         return self.estado
     def __repr__(self):
         return self.__variedad

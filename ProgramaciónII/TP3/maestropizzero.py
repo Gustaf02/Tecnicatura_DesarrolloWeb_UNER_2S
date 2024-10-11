@@ -1,4 +1,4 @@
-from pizza import Pizza
+#from pizza import Pizza
 from orden import Orden
 
 class MaestroPizzero:
@@ -13,46 +13,36 @@ class MaestroPizzero:
 
     def tomar_pedido(self, orden): 
         self.ordenes_por_cocininar.append(orden)
-        #print (f"orden por cocinar: {self.ordenes_por_cocininar }")
-        """nro = int(input ("Igrese el numero de orden: "))
-        var = input("Ingrese la variedad: ")
-        variedad = Pizza(var)
-        orden = Orden(nro,variedad.establecer_variedad(var))
-        orden.establecer_nro_orden(nro)
-        orden.establecer_pizzas(variedad)
-        orden.ESTADO_INICIAL
-        print(f"variedad de pizza de la orden {nro}: Estado: INICIAL {orden.ESTADO_INICIAL} {orden.pizzas}")
-        self.ordenes_por_cocininar.append(nro)
-        print(f"Los numeros de orden a cocinar son: {self.ordenes_por_cocininar}")
-        #print(orden.obtener_nro_order, orden.pizzas)
-        #print(orden.num_orden, orden.pizzas)
-      
-        #print(orden.ESTADO_INICIAL)"""
-     
-
+        #print (f"orden por cocinar: 
 
     def cocinar(self):
-        for pizza in self.__pizzas_por_cocinar:
-            print(self.__nombre + ": cocinando una pizza de " + pizza.obtenerVariedad())
+        for pizza in self.ordenes_por_cocininar:
+            print(self.nombre + ": cocinando una pizza de " + pizza.obtener_estado_interno())
             self.__pizzas_por_entregar.append(pizza)
 
     def entregar(self, pizzas: int):
-        pizzasAEntregar = []
+        self.pizzasas_a_entregar = []
         i = 0
-        for pizza in self.__pizzasPorEntregar:
-            pizzasAEntregar.append(pizza)
-            self.__pizzasPorEntregar.remove(pizza)
+        for pizza in self.ordenes_por_cocininar:
+            self.pizzas_a_entregar.append(pizza)
+            self.pizzas_a_entregar.remove(pizza)
             i += 1
             if i == pizzas:
                 break
-        return pizzasAEntregar
+        return self.pizzas_a_entregar
 
     def obtenerNombre(self):
         return self.__nombre
     
     def obtener_ordenes_por_cocinar(self):
-        print("Desde obtener_ordenes... Maestro_pizzero: ")
         return self.ordenes_por_cocininar
+        """print("Desde obtener_ordenes... Maestro_pizzero: ")
+        print (f"Nro_ord: {self.ordenes_por_cocininar[0]}, Est_ord: {self.ordenes_por_cocininar[2]}, Pizas: {self.ordenes_por_cocininar[1]}")
+        print (f"Nro_ord: {self.ordenes_por_cocininar[3]}, Est_ord: {self.ordenes_por_cocininar[4]}")
+        print (f"Nro_ord: {self.ordenes_por_cocininar[5]}, Est_ord: {self.ordenes_por_cocininar[5]}")
+        #print (f"Est_ord: {self.ordenes_por_cocininar[2:4]}")
+        print (self.ordenes_por_cocininar[7:8])
+        #print (self.ordenes_por_cocininar[:2])"""
     
     def obtenerPizzasPorEntregar(self):
         return self.__pizzasPorEntregar
