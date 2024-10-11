@@ -1,4 +1,5 @@
 from pizza import Pizza
+from pizza_variedad import Pizza_variedad
 
 class Orden :
     ESTADO_INICIAL = 1
@@ -7,17 +8,26 @@ class Orden :
 
     def __init__(self, num_orden: int, pizzas: Pizza): 
         self.num_orden = num_orden
-        self.pizzas = Pizza(pizzas)
-        pizzas = []
+        self.pizzas =[]
+        #self.pizzas = pizzas
         self.estado_orden = 1
 
     """COMANDOS"""
 
     def establecer_nro_orden (self, num_orden: int):
+        num_orden = int(input("Ingrese numero de orden: "))
         self.num_orden = num_orden
+        print(str(f"se establecio el numero de orden: {self.num_orden}"))
 
     def establecer_pizzas (self, pizzas: Pizza):
-        self.pizzas = pizzas
+        n_ob_var = input("Nombre del objeto PizzaVar: ")
+        nom_var = input("Ingrese la variedad: ")
+        precio = int(input("Ingrese el precio"))
+        n_ob_var = Pizza_variedad(nom_var, precio)
+
+        #pizzas = input("Agregar pizzas: ")
+        pizza_objeto = Pizza(n_ob_var)
+        self.pizzas.append(pizza_objeto.obtener_variedad())
 
     def establecer_estado (self, estado: int):
         self.estado = estado
@@ -33,6 +43,7 @@ class Orden :
 
 
     def obtener_nro_order (self):
+        
         return self.num_orden
 
     def obtener_pizzas (self): 

@@ -6,6 +6,7 @@ class Pizza:
 
     def __init__(self, var: str):
         self.__variedad = var
+        self.estado = 1
 
     def establecer_variedad(self, var: str):
         self.__variedad = var

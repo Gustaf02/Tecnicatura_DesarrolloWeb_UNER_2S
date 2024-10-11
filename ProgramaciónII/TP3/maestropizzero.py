@@ -11,21 +11,23 @@ class MaestroPizzero:
     def establecerNombre(self, nom: str):
         self.__nombre = nom
 
-    def tomar_pedido(self, orden):
-        nro = int(input ("Igrese el numero de orden: "))
+    def tomar_pedido(self, orden): 
+        self.ordenes_por_cocininar.append(orden)
+        #print (f"orden por cocinar: {self.ordenes_por_cocininar }")
+        """nro = int(input ("Igrese el numero de orden: "))
         var = input("Ingrese la variedad: ")
         variedad = Pizza(var)
         orden = Orden(nro,variedad.establecer_variedad(var))
         orden.establecer_nro_orden(nro)
         orden.establecer_pizzas(variedad)
-        print(f"variedad de pizza de la orden {nro}: {orden.pizzas}")
-        
+        orden.ESTADO_INICIAL
+        print(f"variedad de pizza de la orden {nro}: Estado: INICIAL {orden.ESTADO_INICIAL} {orden.pizzas}")
         self.ordenes_por_cocininar.append(nro)
-        print(f"Los nuros de orden a cocinar son: {self.ordenes_por_cocininar}")
+        print(f"Los numeros de orden a cocinar son: {self.ordenes_por_cocininar}")
         #print(orden.obtener_nro_order, orden.pizzas)
         #print(orden.num_orden, orden.pizzas)
       
-        #print(orden.ESTADO_INICIAL)
+        #print(orden.ESTADO_INICIAL)"""
      
 
 
@@ -48,8 +50,9 @@ class MaestroPizzero:
     def obtenerNombre(self):
         return self.__nombre
     
-    def obtener_pizzas_por_cocinar(self):
-        return self.__pizzas_por_cocinar
+    def obtener_ordenes_por_cocinar(self):
+        print("Desde obtener_ordenes... Maestro_pizzero: ")
+        return self.ordenes_por_cocininar
     
     def obtenerPizzasPorEntregar(self):
         return self.__pizzasPorEntregar

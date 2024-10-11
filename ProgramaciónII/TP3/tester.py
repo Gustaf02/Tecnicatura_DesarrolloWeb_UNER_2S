@@ -1,20 +1,44 @@
+
+
+
 from mozo import Mozo
 from maestropizzero import MaestroPizzero
 from pizza import Pizza
 from orden  import Orden
-#from pizza_vaierdad import PizzaVariedad
+from pizza_variedad import Pizza_variedad 
+
 
 class Tester:
+    carta = []
+    ver_ordenes = []
    
     def main(self):
         pizzero = MaestroPizzero("walter")
         mozo_1 = Mozo('Gustavo')
         mozo_2 = Mozo('Leonardo')
-        #orden = Orden(pizzero.tomar_pedido(Pizza.establecer_variedad(self.var)))
-        #print(f"que imprime??., {Orden.obtener_nro_order(pizzero.tomar_pedido())}")
-
+        
+        
        
-      
+
+        def crear_pizza_usuario (self, str_var, float_pre):
+                str_var = input("Ingrese el nombre de la pizza: ")
+                float_pre = int(input("Ingrese el precio de la pizza: "))
+                var_pizz = Pizza_variedad(str_var, float_pre)
+                self.carta.append(var_pizz)
+            
+
+        def crear_orden_usuario (self, int_ord): 
+            int_ord = int(input("Ingrese el numero de orden: "))
+            nu_or = Orden(int_ord, self.carta[0])
+            self.ver_ordenes.appen(nu_or)
+    
+        def ver_carta (self):
+            return self.carta
+    
+        def ver_ordenes (self):
+            return self.ver
+
+
 
         while True:
             print("\nMenu:")
