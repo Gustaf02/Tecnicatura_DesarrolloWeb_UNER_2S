@@ -11,8 +11,9 @@ class Tester:
     def main(self):
         #CARTA DE LA PIZZERIA
         self.carta = []
-        #TOTAL DE ORDENES EXISTENTES
+        #TOTAL DE ORDENES CREADAS
         self.ver_ordenes = []
+
 
         #OBJETOS MaestroPizzero Y Mozo   
         pizzero = MaestroPizzero("walter")
@@ -20,6 +21,7 @@ class Tester:
         mozo_2 = Mozo('Leonardo')
 
         #CREO VARIEDADES DE PIZZA
+        gerente_variedad = Pizza_variedad("gerente", 100000000000)
         variedad_1 = Pizza_variedad("muzzaaaa", 5000)
         variedad_2 = Pizza_variedad("napo", 7000)
         variedad_3 = Pizza_variedad("crudo", 10000)
@@ -28,11 +30,9 @@ class Tester:
         pizza_1 = Pizza(variedad_1)
         pizza_2 = Pizza(variedad_2)
         pizza_3 = Pizza(variedad_3)
-
-        
-        
         
         #OBJETOS Orden
+        gerente_orden = Orden(1, "walter")
         orden_1 = Orden(1,"")
         self.ver_ordenes.append(orden_1.num_orden)
         
@@ -55,16 +55,7 @@ class Tester:
         #self.carta.append(variedad_4.nombre_var)
         #self.carta.append(variedad_4.pre)
 
-        #IMPRIMO LA CARTA CON LAS VARIEDADES DE PIZZAS CREADAS
-        print("--------------------------------------------------------------------")
-        print("Carta. ")
-        print(self.carta)
-
-        #VER LOS NUMEROS DE ORDEN
-        print("--------------------------------------------------------------------")
-        print("Ordenes creadas: ")
-        print(self.ver_ordenes)
-        
+       
 
         #AGREGO PIZZAS A LA LISTA self.pizza DE Ordenes
         #   orden 1
@@ -87,7 +78,6 @@ class Tester:
         orden_2.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
         orden_2.pizzas.append(pizza_2.ESTADO_POR_COCINAR)
         
-
         #   orden 3
         orden_3.pizzas.append(pizza_3.obtener_variedad().obtener_nombre())
         orden_3.pizzas.append(pizza_3.ESTADO_POR_COCINAR)
@@ -126,19 +116,72 @@ class Tester:
         pizzero.tomar_pedido(orden_3.num_orden)
         pizzero.tomar_pedido(orden_3.ESTADO_INICIAL)
         pizzero.tomar_pedido(orden_3.pizzas)
-       
+
+        #SALIDAS POR CONSOLA
+        #IMPRIMO LA CARTA CON LAS VARIEDADES DE PIZZAS CREADAS
+        print("--------------------------------------------------------------------")
+        print("Carta. ")
+        print(self.carta)
+
+        #VER LOS NUMEROS DE ORDEN
+        print("--------------------------------------------------------------------")
+        print("Ordenes creadas: ")
+        print(self.ver_ordenes)
+        
         # #pizzero.obtener_ordenes_por_cocinar()
         print("--------------------------------------------------------------------")
         print("Ordenes tomadas:")
-        print(pizzero.obtener_ordenes_por_cocinar())
+        print(pizzero.obtener_ordenes_por_cocinar())#[int+["",int]]
+        print("--------------------------------------------------------------------")
+        print( orden_1.obtener_nro_orden())#int
+        print( orden_1.obtener_pizzas())#[""]
+        print("--------------------------------------------------------------------")
+        print( orden_2.obtener_nro_orden())
+        print( orden_2.obtener_pizzas())
+        print("--------------------------------------------------------------------")
+        print( orden_3.obtener_nro_orden())
+        print( orden_3.obtener_pizzas())
+
 
         #COCINAR
         #pizzero.cocinar()
 
-        
+        #VARIEDAD
+        while True:
+            print("Comience creando una carta de pizzas.\n"
+                  "1. Crear pizza: \n"
+                  "2. Ver carta de pizzas\n"
+                  "3. Genere una orden")
+            opcion = int(input("Ingrese una opcion: "))
+            if opcion == 1:
+                gerente_variedad.crear_variedad("walter", 100000000)
 
-        
-      
+            elif opcion == 2:
+                gerente_variedad.obtener_set()
+
+            elif opcion == 3:
+                gerente_orden.crear_orden("walter", 100000000)
+
+            elif opcion == 4:
+                pass
+
+
+
+
+
+
+
+
+
+
+        #Orden
+        # def crear_orden(num_orden):
+        #     num_orden = int(input("Ingrese numero de orden: "))
+        #     pizzas = []
+        #
+        #     pizza = input("Ingrese ")
+        #     orden = Orden(num_orden, "")
+        #
 
 if __name__ == '__main__':
     tester = Tester()
