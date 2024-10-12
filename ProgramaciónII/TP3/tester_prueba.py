@@ -27,6 +27,7 @@ class Tester:
         variedad_3 = Pizza_variedad("crudo", 10000)
 
         #OBJETOS Pizza
+        gerente_pizza = Pizza(gerente_variedad)
         pizza_1 = Pizza(variedad_1)
         pizza_2 = Pizza(variedad_2)
         pizza_3 = Pizza(variedad_3)
@@ -151,7 +152,8 @@ class Tester:
             print("Comience creando una carta de pizzas.\n"
                   "1. Crear pizza: \n"
                   "2. Ver carta de pizzas\n"
-                  "3. Genere una orden")
+                  "3. Genere una orden\n"
+                  "4. Agregar pizzas a la orden")
             opcion = int(input("Ingrese una opcion: "))
             if opcion == 1:
                 gerente_variedad.crear_variedad("walter", 100000000)
@@ -163,7 +165,9 @@ class Tester:
                 gerente_orden.crear_orden("walter", 100000000)
 
             elif opcion == 4:
-                pass
+                print("Agregue una pizza de la lista a la oden:")
+                gerente_pizza.crear_pizza()
+  
 
 
 
