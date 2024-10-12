@@ -15,14 +15,14 @@ class Orden :
     """COMANDOS"""
 
     def establecer_nro_orden (self, num_orden: int):
-        num_orden = int(input("Ingrese numero de orden: "))
+        #num_orden = int(input("Ingrese numero de orden: "))
         self.num_orden = num_orden
-        print(str(f"se establecio el numero de orden: {self.num_orden}"))
+        #print(str(f"se establecio el numero de orden: {self.num_orden}"))
 
     def establecer_pizzas (self, pizzas: Pizza):
-        n_ob_var = input("Nombre del objeto PizzaVar: ")
-        nom_var = input("Ingrese la variedad: ")
-        precio = int(input("Ingrese el precio"))
+        # n_ob_var = input("Nombre del objeto PizzaVar: ")
+        # nom_var = input("Ingrese la variedad: ")
+        # precio = int(input("Ingrese el precio"))
         n_ob_var = Pizza_variedad(nom_var, precio)
 
         #pizzas = input("Agregar pizzas: ")

@@ -28,19 +28,21 @@ class Tester:
         pizza_1 = Pizza(variedad_1)
         pizza_2 = Pizza(variedad_2)
         pizza_3 = Pizza(variedad_3)
+
         
-        #OBJETOS Orden MIREN LOS ARGUMETOS QUE LE PUSE AL PARAMETRO self.pizza 
-        orden_1 = Orden(1111, pizzas="")
+        
+        
+        #OBJETOS Orden
+        orden_1 = Orden(1,"")
         self.ver_ordenes.append(orden_1.num_orden)
         
-        #DIFERENTE PARAMETRO O EL MISMO PORQUE ES UN STR VACIO NO SE SI VA  PERO FUNCIONA
         orden_2 = Orden(2, "")
         self.ver_ordenes.append(orden_2.num_orden)
         
         orden_3 = Orden(3, "")
         self.ver_ordenes.append(orden_3.num_orden)
        
-        orden_4 = Orden(444, "")
+        orden_4 = Orden(4, "")
         self.ver_ordenes.append(orden_4.num_orden)
 
         #AGREGO VARIEDAD DE PIZA Y SU PRECIO A LA CARTA DE LA PIZZARIA
@@ -55,64 +57,85 @@ class Tester:
 
         #IMPRIMO LA CARTA CON LAS VARIEDADES DE PIZZAS CREADAS
         print("--------------------------------------------------------------------")
-        print("Lista de variedad y precio: ")
+        print("Carta. ")
         print(self.carta)
 
         #VER LOS NUMEROS DE ORDEN
         print("--------------------------------------------------------------------")
-        print("Lista total de ordenes num_orden : Orden: ")
+        print("Ordenes creadas: ")
         print(self.ver_ordenes)
+        
 
         #AGREGO PIZZAS A LA LISTA self.pizza DE Ordenes
         #   orden 1
         orden_1.pizzas.append(pizza_1.obtener_variedad().obtener_nombre())
+        orden_1.pizzas.append(pizza_1.ESTADO_POR_COCINAR)
         orden_1.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
+        orden_1.pizzas.append(pizza_2.ESTADO_POR_COCINAR)
         orden_1.pizzas.append(pizza_3.obtener_variedad().obtener_nombre())
+        orden_1.pizzas.append(pizza_3.ESTADO_POR_COCINAR)
 
         #   orden 2
         orden_2.pizzas.append(pizza_3.obtener_variedad().obtener_nombre())
+        orden_2.pizzas.append(pizza_3.ESTADO_POR_COCINAR)
         orden_2.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
+        orden_2.pizzas.append(pizza_2.ESTADO_POR_COCINAR)
         orden_2.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
+        orden_2.pizzas.append(pizza_2.ESTADO_POR_COCINAR)
         orden_2.pizzas.append(pizza_3.obtener_variedad().obtener_nombre())
+        orden_2.pizzas.append(pizza_3.ESTADO_POR_COCINAR)
         orden_2.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
-        orden_2.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
+        orden_2.pizzas.append(pizza_2.ESTADO_POR_COCINAR)
+        
 
         #   orden 3
         orden_3.pizzas.append(pizza_3.obtener_variedad().obtener_nombre())
+        orden_3.pizzas.append(pizza_3.ESTADO_POR_COCINAR)
         orden_3.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
+        orden_3.pizzas.append(pizza_2.ESTADO_POR_COCINAR)
         orden_3.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
+        orden_3.pizzas.append(pizza_2.ESTADO_POR_COCINAR)
 
         #   orden 4
         orden_4.pizzas.append(pizza_3.obtener_variedad().obtener_nombre())
         orden_4.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
         orden_4.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
 
-        print("--------------------------------------------------------------------") 
-        print(f"Nro de orden {orden_1.num_orden}, estado {orden_1.ESTADO_INICIAL}")
-        print(orden_1.obtener_pizzas())
-        print("--------------------------------------------------------------------")
-        print(f"Nro de orden {orden_4.num_orden}, estado {orden_4.ESTADO_INICIAL}")
-        print(orden_2.obtener_pizzas())
-        print("--------------------------------------------------------------------")
-        print(f"Nro de orden {orden_3.num_orden}, estado {orden_3.ESTADO_INICIAL}")
-        print(orden_3.obtener_pizzas())
-        print("--------------------------------------------------------------------")
+        # print("--------------------------------------------------------------------") 
+        # print(f"Nro de orden {orden_1.num_orden}, estado {orden_1.ESTADO_INICIAL}")
+        # print(orden_1.obtener_pizzas())
+        # print("--------------------------------------------------------------------")
+        # print(f"Nro de orden {orden_4.num_orden}, estado {orden_4.ESTADO_INICIAL}")
+        # print(orden_2.obtener_pizzas())
+        # print("--------------------------------------------------------------------")
+        # print(f"Nro de orden {orden_3.num_orden}, estado {orden_3.ESTADO_INICIAL}")
+        # print(orden_3.obtener_pizzas())
+        # print("--------------------------------------------------------------------")
     
         #CLASE Maestro_pizzero 
         pizzero.tomar_pedido(orden_1.num_orden)
+        pizzero.tomar_pedido(orden_1.ESTADO_INICIAL)
         pizzero.tomar_pedido(orden_1.pizzas)
-        pizzero.tomar_pedido(orden_1.ESTADO_INICIAL)
-        pizzero.tomar_pedido(orden_4.num_orden)
-        pizzero.tomar_pedido(orden_1.ESTADO_INICIAL)
+       
+        
+        pizzero.tomar_pedido(orden_2.num_orden)
+        pizzero.tomar_pedido(orden_2.ESTADO_INICIAL)
+        pizzero.tomar_pedido(orden_2.pizzas)
+        
+
         pizzero.tomar_pedido(orden_3.num_orden)
-        pizzero.tomar_pedido(orden_1.ESTADO_INICIAL)
-        #pizzero.obtener_ordenes_por_cocinar()
+        pizzero.tomar_pedido(orden_3.ESTADO_INICIAL)
+        pizzero.tomar_pedido(orden_3.pizzas)
+       
+        # #pizzero.obtener_ordenes_por_cocinar()
+        print("--------------------------------------------------------------------")
+        print("Ordenes tomadas:")
         print(pizzero.obtener_ordenes_por_cocinar())
 
         #COCINAR
         #pizzero.cocinar()
 
-        orden_1.establecer_nro_orden(num_orden=200)
+        
 
         
       

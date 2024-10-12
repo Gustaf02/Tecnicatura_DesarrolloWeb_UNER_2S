@@ -17,7 +17,7 @@ class MaestroPizzero:
 
     def cocinar(self):
         for pizza in self.ordenes_por_cocininar:
-            print(self.nombre + ": cocinando una pizza de " + pizza.obtener_estado_interno())
+            print(self.nombre + ": cocinando una pizza de " + self.ordenes_por_cocininar[:])
             self.__pizzas_por_entregar.append(pizza)
 
     def entregar(self, pizzas: int):
