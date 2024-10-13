@@ -1,4 +1,4 @@
-from tester_prueba 
+
 
 class Pizza:
 

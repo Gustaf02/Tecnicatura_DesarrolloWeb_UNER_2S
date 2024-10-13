@@ -12,14 +12,14 @@ class Orden :
         #self.pizzas = pizzas
         self.estado_orden = 1
 
-    """COMANDOS"""
+    #CREAR ORDEN
     def crear_orden (self, num_orden, pizzas : Pizza):
         refe_obj = input("Cree una orden: ")
         num_orden = int(input("Ingrese un nro de orden: "))
-        pizzas = self.pizzas
-        refe_obj = Orden(num_orden, pizzas)
+        refe_obj = Orden(num_orden, [pizzas])
         self.pizzas.append(refe_obj.num_orden)
         self.pizzas.append(refe_obj.pizzas)
+        
 
 
     def establecer_nro_orden (self, num_orden: int):

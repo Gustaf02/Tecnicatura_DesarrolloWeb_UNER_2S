@@ -22,19 +22,27 @@ class Tester:
 
         #CREO VARIEDADES DE PIZZA
         gerente_variedad = Pizza_variedad("gerente", 100000000000)
-        variedad_1 = Pizza_variedad("muzzaaaa", 5000)
+        variedad_1 = Pizza_variedad("muzza", 5000)
         variedad_2 = Pizza_variedad("napo", 7000)
         variedad_3 = Pizza_variedad("crudo", 10000)
+        variedad_4 = Pizza_variedad("rucula", 7000)
+        variedad_5 = Pizza_variedad("azul", 8000)
+       
 
         #OBJETOS Pizza
         gerente_pizza = Pizza(gerente_variedad)
         pizza_1 = Pizza(variedad_1)
         pizza_2 = Pizza(variedad_2)
         pizza_3 = Pizza(variedad_3)
+        pizza_4 = Pizza(variedad_4)
+        pizza_5 = Pizza(variedad_5)
+      
         
         #OBJETOS Orden
-        gerente_orden = Orden(1, "walter")
-        orden_1 = Orden(1,"")
+        gerente_orden = Orden(1,[pizza_3.obtener_estado_interno(), pizza_1, pizza_2,pizza_2])
+        print(gerente_orden)
+
+        """orden_1 = Orden(1,"")
         self.ver_ordenes.append(orden_1.num_orden)
         
         orden_2 = Orden(2, "")
@@ -145,7 +153,7 @@ class Tester:
 
 
         #COCINAR
-        #pizzero.cocinar()
+        #pizzero.cocinar()"""
 
         #VARIEDAD
         while True:
@@ -157,12 +165,14 @@ class Tester:
             opcion = int(input("Ingrese una opcion: "))
             if opcion == 1:
                 gerente_variedad.crear_variedad("walter", 100000000)
-
-            elif opcion == 2:
                 gerente_variedad.obtener_set()
 
+            elif opcion == 2:
+                pass
+                
+
             elif opcion == 3:
-                gerente_orden.crear_orden("walter", 100000000)
+                gerente_orden.crear_orden(1,[])
 
             elif opcion == 4:
                 print("Agregue una pizza de la lista a la oden:")
