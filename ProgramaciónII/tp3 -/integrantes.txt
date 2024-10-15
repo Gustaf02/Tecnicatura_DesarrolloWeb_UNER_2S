@@ -1,0 +1,47 @@
+TRABAJO PRÁCTICO Nº 3– 
+
+Integrantes:
+• Walter Frías
+• Marianela Iselli
+• Israel Leonardo Montiel
+• Carlos Gustavo Ortiz
+
+
+Ejercicio 6:
+ Indique si las siguientes sentencias son Verdaderas o Falsas:
+
+a. La clase Mozo y la clase MaestroPizzero están asociadas.
+   Falsa (no hay asociación entre Mozo y MaestroPizzero).
+   Una asociación implica que las dos clases tienen una relación directa y colaboran. En este caso, los mozos no interactúan directamente con el maestro pizzero. Cada uno tiene   roles distintos: los mozos     entregan pizzas, mientras que el maestro se encarga de cocinarlas.
+
+b. Existe una relación de dependencia entre las clases Mozo y MaestroPizzero.
+    Falsa (no hay dependencia de Mozo a MaestroPizzero)
+    La dependencia ocurre si una clase necesita que otra exista o cambie para funcionar correctamente. Aunque ambos participan en el proceso de la pizzería, los mozos no dependen directamente del     maestro pizzero, sino de las órdenes que deben entregar.
+
+c. La clase Orden es proveedora de la clase MaestroPizzero.
+   Falsa (la clase Orden no provee a MaestroPizzero).
+   La relación entre Orden y MaestroPizzero no es de proveedor-cliente. En este sistema, el maestro pizzero recibe las órdenes para cocinarlas, pero no podemos decir que Orden "provea" directamente al    maestro pizzero, sino que actúa como intermediario para coordinar los pedidos.
+
+d. La clase MaestroPizzero es proveedora de la clase Pizza.
+    Falsa (no hay relación directa).
+    La clase Pizza no depende del maestro pizzero, ya que la relación más adecuada sería que el maestro crea o cocina las pizzas. No hay una relación de proveedor formal en este sentido.
+
+e. La clase MaestroPizzero es cliente de la clase Pizza.
+    Verdadera (la clase MaestroPizzero utiliza Pizza).
+    El maestro pizzero utiliza instancias de la clase Pizza para preparar los pedidos. Aquí, el pizzero se comporta como un cliente que usa las definiciones de las pizzas para realizar su trabajo.
+
+f. La clase Pizza y PizzaVariedad están asociadas.
+   Verdadera (asociación entre Pizza y PizzaVariedad).
+   Las clases Pizza y PizzaVariedad están asociadas porque la variedad es un atributo o característica que describe las diferentes pizzas. Esta relación es directa y lógica.
+
+g. Existe una relación de dependencia entre las clases PizzaVariedad y Pizza.
+   Verdadera (dependencia de Pizza a PizzaVariedad)
+   PizzaVariedad depende de la clase Pizza porque define las opciones o tipos específicos que una pizza puede tener. Sin la clase Pizza, no tendría sentido definir las variedades.
+
+h. La clase Mozo y Pizza están asociadas.
+   Verdadera ( hay relación directa entre Mozo y Pizza).
+   Los mozos interactúan con las pizzas al llevarlas y entregarlas a los clientes. Esta interacción implica una asociación entre ambas clases.
+
+i. Existe una relación de dependencia entre las clases Orden y PizzaVariedad.
+   Falsa (la clase Orden no utiliza variedad de pizza).
+  En la implementación concreta no hay una relación de dependencia directa. Aunque conceptualmente las órdenes deberían especificar variedades, sin una referencia directa en el código (como importar la clase o usar instancias), no podemos afirmar que exista dependencia en términos formales.
