@@ -141,6 +141,72 @@ class Tester:
                     print("El maestro pizzero ha tomado todos los pedidos pendientes.")
                 else:
                     print("No hay órdenes disponibles para tomar.")
+             elif opcion == "6":
+                # Pizzero cocina pizzas
+                if ordenes:
+                    maestro.cocinar()
+                else:
+                    print("No hay órdenes para cocinar.")
+
+            elif opcion == "7":
+                # Mozo servir pizzas
+                if ordenes:
+                    Tester.mostrar_ordenes(ordenes)
+                    try:
+                        nro = int(input("Ingrese el número de la orden de la cual desea servir pizzas: "))
+                        orden = next((o for o in ordenes if o.nroOrden == nro), None)
+                        if orden:
+                            pizzas_servir = maestro.entregar(orden)
+                            if pizzas_servir:
+                                mozo.tomarPizzas(pizzas_servir)
+                                mozo.servirPizzas()
+                            else:
+                                print(f"No hay pizzas listas para entregar en la orden N° {nro}.")
+                        else:
+                            print("No se encontró una orden con ese número.")
+                    except ValueError:
+                        print("Por favor, ingrese un número válido.")
+                else:
+                    print("No hay órdenes creadas.")
+
+            elif opcion == "8":
+                # Mozo servir pizzas
+                if ordenes:
+                    Tester.mostrar_ordenes(ordenes)
+                    try:
+                        nro = int(input("Ingrese el número de la orden de la cual desea servir pizzas: "))
+                        orden = next((o for o in ordenes if o.nroOrden == nro), None)
+                        if orden:
+                            pizzas_servir = maestro.entregar(orden)
+                            if pizzas_servir:
+                                mozo2.tomarPizzas(pizzas_servir)
+                                mozo2.servirPizzas()
+                            else:
+                                print(f"No hay pizzas listas para entregar en la orden N° {nro}.")
+                        else:
+                            print("No se encontró una orden con ese número.")
+                    except ValueError:
+                        print("Por favor, ingrese un número válido.")
+                else:
+                    print("No hay órdenes creadas.")
+
+            elif opcion == "9":
+                # Ver estado del mozo
+                if mozo.obtenerEstadoLibre():
+                    print(f"El mozo {mozo.obtenerNombre()} está libre.")
+                else:
+                    print(f"El mozo {mozo.obtenerNombre()} está sirviendo pizzas.")
+                    pizzas_mozo = mozo.obtenerPizzas()
+                    for pizza in pizzas_mozo:
+                        print(f"   Pizza: {pizza.variedad.nombreVariedad} - Estado: {pizza.estado}")
+                if mozo.obtenerEstadoLibre():
+                    print(f"El mozo {mozo2.obtenerNombre()} está libre.")
+                else:
+                    print(f"El mozo {mozo2.obtenerNombre()} está sirviendo pizzas.")
+                    pizzas_mozo = mozo2.obtenerPizzas()
+                    for pizza in pizzas_mozo:
+                        print(f"   Pizza: {pizza.variedad.nombreVariedad} - Estado: {pizza.estado}")
+            
 
         
 
