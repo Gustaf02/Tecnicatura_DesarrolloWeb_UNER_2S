@@ -1,26 +1,17 @@
 
 
-class Pizza:
+from pizza_variedad import PizzaVariedad
 
+class Pizza:
     ESTADO_POR_COCINAR = 1
     ESTADO_COCINADA = 2
     ESTADO_ENTREGADA = 3
 
-    def __init__(self, var: str):
-        self.__variedad = var
-        self.estado = 1
-        self.pizzas_obj = []
+    def __init__(self, var: PizzaVariedad):
+        self.variedad = var
+        self.estado = Pizza.ESTADO_POR_COCINAR
 
-    def crear_pizza(self,var):
-        refe_obj = input("Ingrese ")
-        pizza = Pizza(var)
-        
-        self.pizzas_obj.append(self.estado)
-        self.pizzas_obj.append(self.__variedad)
-        
-
-        
-
+    
     def establecer_variedad(self, var: str):
         self.__variedad = var
 
@@ -34,3 +25,12 @@ class Pizza:
         return self.estado
     def __repr__(self):
         return self.__variedad
+    def cocinar(self):
+        self.estado = Pizza.ESTADO_COCINADA
+
+    def entregar(self):
+        self.estado = Pizza.ESTADO_ENTREGADA
+
+    def __str__(self):
+        estados = {1: "Por Cocinar", 2: "Cocinada", 3: "Entregada"}
+        return f"Pizza de {self.variedad.nombreVariedad} - Estado: {estados[self.estado]}"
