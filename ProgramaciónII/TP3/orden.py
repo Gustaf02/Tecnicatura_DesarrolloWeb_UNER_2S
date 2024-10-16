@@ -19,7 +19,7 @@ class Orden:
     def establecer_pizzas (self, pizzas: Pizza):
         self.pizzas = pizzas
 
-     def entregar_pizzas(self):
+    def entregar_pizzas(self):
         for pizza in self.pizzas:
             pizza.entregar()
 
