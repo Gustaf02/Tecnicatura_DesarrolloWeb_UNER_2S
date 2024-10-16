@@ -18,6 +18,38 @@ class Orden:
 
     def establecer_pizzas (self, pizzas: Pizza):
         self.pizzas = pizzas
+
+     def entregar_pizzas(self):
+        for pizza in self.pizzas:
+            pizza.entregar()
+
+    def todas_pizzas_entregadas(self):
+        return all(pizza.estado == Pizza.ESTADO_ENTREGADA for pizza in self.pizzas)
+
+    def __str__(self):
+        estado = {1: "Inicial", 2: "Para Entregar", 3: "Entregada"}
+        return f"Orden {self.nroOrden} - Estado: {estado[self.estadoOrden]} - Pizzas: {len(self.pizzas)}"
+    
+    def precio_total(self):
+        return sum(pizza.variedad.precio for pizza in self.pizzas)
+    
+    def entregar_pizzas(self):
+        for pizza in self.pizzas:
+            pizza.entregar()
+
+    def todas_pizzas_entregadas(self):
+        return all(pizza.estado == Pizza.ESTADO_ENTREGADA for pizza in self.pizzas)
+
+    def __str__(self):
+        estado = {1: "Inicial", 2: "Para Entregar", 3: "Entregada"}
+        return f"Orden {self.nroOrden} - Estado: {estado[self.estadoOrden]} - Pizzas: {len(self.pizzas)}"
+    
+    def precio_total(self):
+        return sum(pizza.variedad.precio for pizza in self.pizzas)
+    
+
+
+
         # n_ob_var = input("Nombre del objeto PizzaVar: ")
         # nom_var = input("Ingrese la variedad: ")
         # precio = int(input("Ingrese el precio"))
@@ -36,22 +68,7 @@ class Orden:
     #     elif estado == 3:
     #         print("Orden: " + str(self.num_orden) + " (ESTADO_ENTREGADA):")
 
-    """CONSULTAS"""
 
 
-    def obtener_nro_orden (self):
-        
-        return self.num_orden
 
-    def obtener_pizzas (self): 
-        return self.pizzas
-
-    def obtener_lei (self):
-        return self.estado
     
-    def calcular_total (self):
-        return self.pizzas.caKOlcular_total()
-      
-    
-
-
