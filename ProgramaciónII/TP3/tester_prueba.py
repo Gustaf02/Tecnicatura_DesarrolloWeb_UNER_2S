@@ -1,46 +1,92 @@
 from mozo import Mozo
-from maestropizzero import MaestroPizzero
+from pizza_variedad import PizzaVariedad
 from pizza import Pizza
-from orden  import Orden
-from pizza_variedad import Pizza_variedad 
-
-
+from orden import Orden
+from maestro_pizzero import MaestroPizzero
 class Tester:
-    
-   
-    def main(self):
-        #CARTA DE LA PIZZERIA
-        self.carta = []
-        #TOTAL DE ORDENES CREADAS
-        self.ver_ordenes = []
 
-
-        #OBJETOS MaestroPizzero Y Mozo   
-        pizzero = MaestroPizzero("walter")
-        mozo_1 = Mozo('Gustavo')
-        mozo_2 = Mozo('Leonardo')
-
-        #CREO VARIEDADES DE PIZZA
-        gerente_variedad = Pizza_variedad("gerente", 100000000000)
-        variedad_1 = Pizza_variedad("muzza", 5000)
-        variedad_2 = Pizza_variedad("napo", 7000)
-        variedad_3 = Pizza_variedad("crudo", 10000)
-        variedad_4 = Pizza_variedad("rucula", 7000)
-        variedad_5 = Pizza_variedad("azul", 8000)
-       
-
-        #OBJETOS Pizza
-        gerente_pizza = Pizza(gerente_variedad)
-        pizza_1 = Pizza(variedad_1)
-        pizza_2 = Pizza(variedad_2)
-        pizza_3 = Pizza(variedad_3)
-        pizza_4 = Pizza(variedad_4)
-        pizza_5 = Pizza(variedad_5)
-      
+    @staticmethod
+    def pedir_variedad_pizza():
+        nombre = input("Ingrese el nombre de la variedad de pizza: ")
+        while True:
+            try:
+                precio = float(input("Ingrese el precio de la pizza: "))
+                if precio > 0:
+                    break
+                else:
+                    print("El precio debe ser mayor a 0.")
+            except ValueError:
+                print("Por favor, ingrese un valor numérico válido.")
+        return PizzaVariedad(nombre, precio)
+    @staticmethod
+    def pedir_pizzas(variedades):
+        pizzas = []
+        while True:
+            print("Elija una variedad de pizza para agregar a la orden:")
+            for i, variedad in enumerate(variedades, 1):
+                print(f"{i}. {variedad.nombreVariedad} - {variedad.precio}$")
+            
+            try:
+                eleccion = int(input("Seleccione el número de la variedad (o 0 para terminar): "))
+                if eleccion == 0:
+                    break
+                if 1 <= eleccion <= len(variedades):
+                    pizzas.append(Pizza(variedades[eleccion - 1]))
+                    print(f"Pizza de {variedades[eleccion - 1].nombreVariedad} agregada.")
+                else:
+                    print("Opción inválida, intente de nuevo.")
+            except ValueError:
+                print("Por favor, ingrese un número válido.")
         
-        #OBJETOS Orden
-        gerente_orden = Orden(1,[pizza_3.obtener_estado_interno(), pizza_1, pizza_2,pizza_2])
-        print(gerente_orden)
+        return pizzas
+    
+    @staticmethod
+    def crear_orden(nro, variedades):
+        pizzas = Tester.pedir_pizzas(variedades)
+        return Orden(nro, pizzas)
+
+    @staticmethod
+    def mostrar_ordenes(ordenes):
+        if not ordenes:
+            print("No hay órdenes creadas.")
+        else:
+            for orden in ordenes:
+                estado = {
+                    Orden.ESTADO_INICIAL: "Inicial",
+                    Orden.ESTADO_PARA_ENTREGAR: "Para Entregar",
+                    Orden.ESTADO_ENTREGADA: "Entregada"
+                }[orden.estadoOrden]
+                print(f"Orden N° {orden.nroOrden} - Estado: {estado}")
+                for pizza in orden.pizzas:
+                    estado_pizza = {
+                        Pizza.ESTADO_POR_COCINAR: "Por Cocinar",
+                        Pizza.ESTADO_COCINADA: "Cocinada",
+                        Pizza.ESTADO_ENTREGADA: "Entregada"
+                    }[pizza.estado]
+                    print(f"   Pizza: {pizza.variedad.nombreVariedad} - Estado: {estado_pizza}")
+
+    @staticmethod
+    def main():
+        maestro = MaestroPizzero("Pipo")
+        mozo = Mozo("Nico")
+        mozo2 = Mozo("Juan")
+        variedades = []
+        ordenes = []
+        nro_orden = 1
+
+        while True:
+            print("\n=== Menú ===")
+            print("1. Crear variedad de pizza")
+            print("2. Crear orden")
+            print("3. Agregar pizzas a una orden")
+            print("4. Ver órdenes")
+            print("5. Pizzero tomar pedido")
+            print("6. Pizzero cocinar pizzas")
+            print("7. Mozo 1 servir pizza")
+            print("8. Mozo 2 servir pizza")
+            print("9. Ver estado del mozos")
+            print("10. obtener cuanta")
+            print("11. Salir")
 
         """orden_1 = Orden(1,"")
         self.ver_ordenes.append(orden_1.num_orden)
