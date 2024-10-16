@@ -10,14 +10,18 @@ class MaestroPizzero:
     def establecerNombre(self, nom: str):
         self.__nombre = nom
 
-    def tomar_pedido(self, orden): 
-        self.ordenes_por_cocininar.append(orden)
-        #print (f"orden por cocinar: 
+    def tomarPedido(self, orden: Orden):
+        if orden.estadoOrden == Orden.ESTADO_INICIAL:
+            self.ordenes.append(orden)
+        else:
+            raise ValueError("La orden no está en estado inicial")
 
     def cocinar(self):
-        for pizza in self.ordenes_por_cocininar:
-            print(self.nombre + ": cocinando una pizza de " + self.ordenes_por_cocininar[:])
-            self.__pizzas_por_entregar.append(pizza)
+        for orden in self.ordenes:
+            if orden.estadoOrden == Orden.ESTADO_INICIAL:
+                for pizza in orden.pizzas:
+                    pizza.cocinar()
+                orden.cambiar_estado_para_entregar()
 
     def entregar(self, pizzas: int):
         self.pizzasas_a_entregar = []
