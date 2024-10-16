@@ -88,29 +88,61 @@ class Tester:
             print("10. obtener cuanta")
             print("11. Salir")
 
-        """orden_1 = Orden(1,"")
-        self.ver_ordenes.append(orden_1.num_orden)
-        
-        orden_2 = Orden(2, "")
-        self.ver_ordenes.append(orden_2.num_orden)
-        
-        orden_3 = Orden(3, "")
-        self.ver_ordenes.append(orden_3.num_orden)
-       
-        orden_4 = Orden(4, "")
-        self.ver_ordenes.append(orden_4.num_orden)
+            opcion = input("Seleccione una opción: ")
 
-        #AGREGO VARIEDAD DE PIZA Y SU PRECIO A LA CARTA DE LA PIZZARIA
-        self.carta.append(variedad_1.nombre_var)
-        self.carta.append(variedad_1.pre)
-        self.carta.append(variedad_2.nombre_var)
-        self.carta.append(variedad_2.pre)
-        self.carta.append(variedad_3.nombre_var)
-        self.carta.append(variedad_3.pre)
-        #self.carta.append(variedad_4.nombre_var)
-        #self.carta.append(variedad_4.pre)
+            if opcion == "1":
+                # Crear variedad de pizza
+                variedad = Tester.pedir_variedad_pizza()
+                variedades.append(variedad)
+                print(f"Variedad {variedad.nombreVariedad} creada con éxito.")
 
-       
+            elif opcion == "2":
+                # Crear orden
+                if variedades:
+                    orden = Tester.crear_orden(nro_orden, variedades)
+                    if orden.pizzas:
+                        maestro.tomarPedido(orden)
+                        ordenes.append(orden)
+                        print(f"Orden {nro_orden} creada y agregada al maestro pizzero.")
+                        nro_orden += 1
+                    else:
+                        print("La orden no tiene pizzas, no se agregó.")
+                else:
+                    print("Debe crear variedades de pizza antes de generar una orden.")
+
+            elif opcion == "3":
+                # Agregar pizzas a una orden existente
+                if ordenes:
+                    Tester.mostrar_ordenes(ordenes)
+                    try:
+                        nro = int(input("Ingrese el número de la orden a la que desea agregar pizzas: "))
+                        orden = next((o for o in ordenes if o.nroOrden == nro), None)
+                        if orden:
+                            nuevas_pizzas = Tester.pedir_pizzas(variedades)
+                            orden.pizzas.extend(nuevas_pizzas)
+                            print(f"Pizzas agregadas a la orden {nro}.")
+                        else:
+                            print("No se encontró una orden con ese número.")
+                    except ValueError:
+                        print("Por favor, ingrese un número válido.")
+                else:
+                    print("No hay órdenes creadas.")
+
+            elif opcion == "4":
+                # Ver órdenes
+                Tester.mostrar_ordenes(ordenes)
+
+            elif opcion == "5":
+                # Pizzero toma pedido
+                if ordenes:
+                    for orden in ordenes:
+                        if orden.estadoOrden == Orden.ESTADO_INICIAL:
+                            maestro.tomarPedido(orden)
+                    print("El maestro pizzero ha tomado todos los pedidos pendientes.")
+                else:
+                    print("No hay órdenes disponibles para tomar.")
+
+        
 
         #AGREGO PIZZAS A LA LISTA self.pizza DE Ordenes
         #   orden 1
