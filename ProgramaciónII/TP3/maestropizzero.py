@@ -1,12 +1,11 @@
-#from pizza import Pizza
+# maestro_pizzero.py
 from orden import Orden
+from pizza import Pizza
 
 class MaestroPizzero:
-
     def __init__(self, nom: str):
         self.nombre = nom
-        self.ordenes_por_cocininar = []
-        
+        self.ordenes = []
 
     def establecerNombre(self, nom: str):
         self.__nombre = nom
