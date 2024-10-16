@@ -206,6 +206,39 @@ class Tester:
                     pizzas_mozo = mozo2.obtenerPizzas()
                     for pizza in pizzas_mozo:
                         print(f"   Pizza: {pizza.variedad.nombreVariedad} - Estado: {pizza.estado}")
+                
+                elif opcion == "10":
+                # Mostrar el total de la cuenta de una orden
+                if ordenes:
+                    Tester.mostrar_ordenes(ordenes)
+                    try:
+                        nro = int(input("Ingrese el número de la orden para ver el total: "))
+                        orden = next((o for o in ordenes if o.nroOrden == nro), None)
+                        if orden:
+                            total = sum(pizza.variedad.precio for pizza in orden.pizzas)
+                            print(f"El total de la orden N° {nro} es: {total:.2f}$")
+                        else:
+                            print("No se encontró una orden con ese número.")
+                    except ValueError:
+                        print("Por favor, ingrese un número válido.")
+                else:
+                    print("No hay órdenes creadas.")
+
+
+            elif opcion == "11":
+                # Salir del programa
+                print("Saliendo del programa...")
+                break
+
+            else:
+                print("Opción no válida, por favor seleccione una opción del 1 al 10.")
+               
+# Bloque final para ejecutar el tester
+if __name__ == "__main__":
+    tester = Tester
+    tester.main()
+
+            
             
 
         
