@@ -207,7 +207,7 @@ class Tester:
                     for pizza in pizzas_mozo:
                         print(f"   Pizza: {pizza.variedad.nombreVariedad} - Estado: {pizza.estado}")
                 
-                elif opcion == "10":
+            elif opcion == "10":
                 # Mostrar el total de la cuenta de una orden
                 if ordenes:
                     Tester.mostrar_ordenes(ordenes)
@@ -245,37 +245,37 @@ if __name__ == "__main__":
 
         #AGREGO PIZZAS A LA LISTA self.pizza DE Ordenes
         #   orden 1
-        orden_1.pizzas.append(pizza_1.obtener_variedad().obtener_nombre())
-        orden_1.pizzas.append(pizza_1.ESTADO_POR_COCINAR)
-        orden_1.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
-        orden_1.pizzas.append(pizza_2.ESTADO_POR_COCINAR)
-        orden_1.pizzas.append(pizza_3.obtener_variedad().obtener_nombre())
-        orden_1.pizzas.append(pizza_3.ESTADO_POR_COCINAR)
+        # orden_1.pizzas.append(pizza_1.obtener_variedad().obtener_nombre())
+        # orden_1.pizzas.append(pizza_1.ESTADO_POR_COCINAR)
+        # orden_1.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
+        # orden_1.pizzas.append(pizza_2.ESTADO_POR_COCINAR)
+        # orden_1.pizzas.append(pizza_3.obtener_variedad().obtener_nombre())
+        # orden_1.pizzas.append(pizza_3.ESTADO_POR_COCINAR)
 
-        #   orden 2
-        orden_2.pizzas.append(pizza_3.obtener_variedad().obtener_nombre())
-        orden_2.pizzas.append(pizza_3.ESTADO_POR_COCINAR)
-        orden_2.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
-        orden_2.pizzas.append(pizza_2.ESTADO_POR_COCINAR)
-        orden_2.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
-        orden_2.pizzas.append(pizza_2.ESTADO_POR_COCINAR)
-        orden_2.pizzas.append(pizza_3.obtener_variedad().obtener_nombre())
-        orden_2.pizzas.append(pizza_3.ESTADO_POR_COCINAR)
-        orden_2.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
-        orden_2.pizzas.append(pizza_2.ESTADO_POR_COCINAR)
+        # #   orden 2
+        # orden_2.pizzas.append(pizza_3.obtener_variedad().obtener_nombre())
+        # orden_2.pizzas.append(pizza_3.ESTADO_POR_COCINAR)
+        # orden_2.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
+        # orden_2.pizzas.append(pizza_2.ESTADO_POR_COCINAR)
+        # orden_2.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
+        # orden_2.pizzas.append(pizza_2.ESTADO_POR_COCINAR)
+        # orden_2.pizzas.append(pizza_3.obtener_variedad().obtener_nombre())
+        # orden_2.pizzas.append(pizza_3.ESTADO_POR_COCINAR)
+        # orden_2.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
+        # orden_2.pizzas.append(pizza_2.ESTADO_POR_COCINAR)
         
-        #   orden 3
-        orden_3.pizzas.append(pizza_3.obtener_variedad().obtener_nombre())
-        orden_3.pizzas.append(pizza_3.ESTADO_POR_COCINAR)
-        orden_3.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
-        orden_3.pizzas.append(pizza_2.ESTADO_POR_COCINAR)
-        orden_3.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
-        orden_3.pizzas.append(pizza_2.ESTADO_POR_COCINAR)
+        # #   orden 3
+        # orden_3.pizzas.append(pizza_3.obtener_variedad().obtener_nombre())
+        # orden_3.pizzas.append(pizza_3.ESTADO_POR_COCINAR)
+        # orden_3.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
+        # orden_3.pizzas.append(pizza_2.ESTADO_POR_COCINAR)
+        # orden_3.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
+        # orden_3.pizzas.append(pizza_2.ESTADO_POR_COCINAR)
 
-        #   orden 4
-        orden_4.pizzas.append(pizza_3.obtener_variedad().obtener_nombre())
-        orden_4.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
-        orden_4.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
+        # #   orden 4
+        # orden_4.pizzas.append(pizza_3.obtener_variedad().obtener_nombre())
+        # orden_4.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
+        # orden_4.pizzas.append(pizza_2.obtener_variedad().obtener_nombre())
 
         # print("--------------------------------------------------------------------") 
         # print(f"Nro de orden {orden_1.num_orden}, estado {orden_1.ESTADO_INICIAL}")
@@ -289,92 +289,52 @@ if __name__ == "__main__":
         # print("--------------------------------------------------------------------")
     
         #CLASE Maestro_pizzero 
-        pizzero.tomar_pedido(orden_1.num_orden)
-        pizzero.tomar_pedido(orden_1.ESTADO_INICIAL)
-        pizzero.tomar_pedido(orden_1.pizzas)
+        # pizzero.tomar_pedido(orden_1.num_orden)
+        # pizzero.tomar_pedido(orden_1.ESTADO_INICIAL)
+        # pizzero.tomar_pedido(orden_1.pizzas)
        
         
-        pizzero.tomar_pedido(orden_2.num_orden)
-        pizzero.tomar_pedido(orden_2.ESTADO_INICIAL)
-        pizzero.tomar_pedido(orden_2.pizzas)
+        # pizzero.tomar_pedido(orden_2.num_orden)
+        # pizzero.tomar_pedido(orden_2.ESTADO_INICIAL)
+        # pizzero.tomar_pedido(orden_2.pizzas)
         
 
-        pizzero.tomar_pedido(orden_3.num_orden)
-        pizzero.tomar_pedido(orden_3.ESTADO_INICIAL)
-        pizzero.tomar_pedido(orden_3.pizzas)
+        # pizzero.tomar_pedido(orden_3.num_orden)
+        # pizzero.tomar_pedido(orden_3.ESTADO_INICIAL)
+        # pizzero.tomar_pedido(orden_3.pizzas)
 
-        #SALIDAS POR CONSOLA
-        #IMPRIMO LA CARTA CON LAS VARIEDADES DE PIZZAS CREADAS
-        print("--------------------------------------------------------------------")
-        print("Carta. ")
-        print(self.carta)
+        # #SALIDAS POR CONSOLA
+        # #IMPRIMO LA CARTA CON LAS VARIEDADES DE PIZZAS CREADAS
+        # print("--------------------------------------------------------------------")
+        # print("Carta. ")
+        # print(self.carta)
 
-        #VER LOS NUMEROS DE ORDEN
-        print("--------------------------------------------------------------------")
-        print("Ordenes creadas: ")
-        print(self.ver_ordenes)
+        # #VER LOS NUMEROS DE ORDEN
+        # print("--------------------------------------------------------------------")
+        # print("Ordenes creadas: ")
+        # print(self.ver_ordenes)
         
         # #pizzero.obtener_ordenes_por_cocinar()
-        print("--------------------------------------------------------------------")
-        print("Ordenes tomadas:")
-        print(pizzero.obtener_ordenes_por_cocinar())#[int+["",int]]
-        print("--------------------------------------------------------------------")
-        print( orden_1.obtener_nro_orden())#int
-        print( orden_1.obtener_pizzas())#[""]
-        print("--------------------------------------------------------------------")
-        print( orden_2.obtener_nro_orden())
-        print( orden_2.obtener_pizzas())
-        print("--------------------------------------------------------------------")
-        print( orden_3.obtener_nro_orden())
-        print( orden_3.obtener_pizzas())
+        # print("--------------------------------------------------------------------")
+        # print("Ordenes tomadas:")
+        # print(pizzero.obtener_ordenes_por_cocinar())#[int+["",int]]
+        # print("--------------------------------------------------------------------")
+        # print( orden_1.obtener_nro_orden())#int
+        # print( orden_1.obtener_pizzas())#[""]
+        # print("--------------------------------------------------------------------")
+        # print( orden_2.obtener_nro_orden())
+        # print( orden_2.obtener_pizzas())
+        # print("--------------------------------------------------------------------")
+        # print( orden_3.obtener_nro_orden())
+        # print( orden_3.obtener_pizzas())
 
 
-        #COCINAR
-        #pizzero.cocinar()"""
+        # #COCINAR
+        # #pizzero.cocinar()"""
 
-        #VARIEDAD
-        while True:
-            print("Comience creando una carta de pizzas.\n"
-                  "1. Crear pizza: \n"
-                  "2. Ver carta de pizzas\n"
-                  "3. Genere una orden\n"
-                  "4. Agregar pizzas a la orden")
-            opcion = int(input("Ingrese una opcion: "))
-            if opcion == 1:
-                gerente_variedad.crear_variedad("walter", 100000000)
-                gerente_variedad.obtener_set()
-
-            elif opcion == 2:
-                pass
-                
-
-            elif opcion == 3:
-                gerente_orden.crear_orden(1,[])
-
-            elif opcion == 4:
-                print("Agregue una pizza de la lista a la oden:")
-                gerente_pizza.crear_pizza()
-  
+        # #VARIEDAD
+       
 
 
 
-
-
-
-
-
-
-
-        #Orden
-        # def crear_orden(num_orden):
-        #     num_orden = int(input("Ingrese numero de orden: "))
-        #     pizzas = []
-        #
-        #     pizza = input("Ingrese ")
-        #     orden = Orden(num_orden, "")
-        #
-
-if __name__ == '__main__':
-    tester = Tester()
-    tester.main()   
 

@@ -1,31 +1,20 @@
 from pizza import Pizza
-from pizza_variedad import Pizza_variedad
 
-class Orden :
+class Orden:
     ESTADO_INICIAL = 1
     ESTADO_PARA_ENTREGAR = 2
     ESTADO_ENTREGADA = 3
 
-    def __init__(self, num_orden: int, pizzas: Pizza): 
-        self.num_orden = num_orden
-        self.pizzas =[]
-        #self.pizzas = pizzas
-        self.estado_orden = 1
+    def __init__(self, nro: int, pizzas: list[Pizza]):
+        self.nroOrden = nro
+        self.pizzas = pizzas
+        self.estadoOrden = Orden.ESTADO_INICIAL
 
-    #CREAR ORDEN
-    def crear_orden (self, num_orden, pizzas : Pizza):
-        refe_obj = input("Cree una orden: ")
-        num_orden = int(input("Ingrese un nro de orden: "))
-        refe_obj = Orden(num_orden, [pizzas])
-        self.pizzas.append(refe_obj.num_orden)
-        self.pizzas.append(refe_obj.pizzas)
-        
+    def agregar_pizza(self, pizza: Pizza):
+        self.pizzas.append(pizza)
 
-
-    def establecer_nro_orden (self, num_orden: int):
-        #num_orden = int(input("Ingrese numero de orden: "))
-        self.num_orden = num_orden
-        #print(str(f"se establecio el numero de orden: {self.num_orden}"))
+    def cambiar_estado_para_entregar(self):
+        self.estadoOrden = Orden.ESTADO_PARA_ENTREGAR
 
     def establecer_pizzas (self, pizzas: Pizza):
         self.pizzas = pizzas
