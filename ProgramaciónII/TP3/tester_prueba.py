@@ -75,7 +75,7 @@ class Tester:
         nro_orden = 1
 
         while True:
-            print("\n=== Menú ===")
+            print("\n### PIPO PIZZERIA ###")
             print("1. Crear variedad de pizza")
             print("2. Crear orden")
             print("3. Agregar pizzas a una orden")
