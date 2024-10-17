@@ -141,7 +141,7 @@ class Tester:
                     print("El maestro pizzero ha tomado todos los pedidos pendientes.")
                 else:
                     print("No hay órdenes disponibles para tomar.")
-             elif opcion == "6":
+            elif opcion == "6":
                 # Pizzero cocina pizzas
                 if ordenes:
                     maestro.cocinar()
