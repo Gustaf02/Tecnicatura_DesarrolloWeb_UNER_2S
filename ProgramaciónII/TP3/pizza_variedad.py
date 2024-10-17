@@ -21,12 +21,12 @@ class PizzaVariedad:
         self.nombreVariedad = nom_var  # Asigna un nuevo nombre a la variedad.
 
     # Método para establecer un nuevo precio.
-    # No incluye validación del precio aquí, lo cual puede ser un riesgo.
+    
     def establecer_precio(self, pre: int):
         self.precio = pre  # Actualiza el precio.
 
     # Método para obtener el nombre de la variedad. 
-    # Este método contiene un error: debería devolver 'self.nombreVariedad'.
+    
     def obtener_nombre(self):
         return self.nombreVar  # Error: 'self.nombreVar' no existe.
 
