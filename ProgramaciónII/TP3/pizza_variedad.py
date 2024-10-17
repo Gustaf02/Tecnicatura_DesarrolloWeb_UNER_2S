@@ -28,6 +28,6 @@ class PizzaVariedad:
     # Método para obtener el nombre de la variedad. 
     
     def obtener_nombre(self):
-        return self.nombreVar  # Error: 'self.nombreVar' no existe.
+        return self.nombreVar  
 
     
