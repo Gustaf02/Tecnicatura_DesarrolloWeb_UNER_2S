@@ -3,7 +3,7 @@ from pizza import Pizza
 
 class Mozo:
     def __init__(self, nom: str):
-        self.nombre = nom
+        self.__nombre = nom
         self.pizzas = []
 
     def establecerNombre(self, nom: str):
@@ -25,6 +25,12 @@ class Mozo:
         self.pizzas.clear()
         return servidas
 
-    def obtenerEstadoLibre(self):
-        return len(self.pizzas) == 0
+    #def obtenerEstadoLibre(self):
+        #return len(self.pizzas) == 0
 
+    #def obtenerEstadoLibre(self):
+        #return len(self.pizzas) == 0 or len(self.pizzas) < 0
+
+    def obtenerEstadoLibre(self):
+        pizzasTomadas = len(self.pizzas)
+        return pizzasTomadas < 2

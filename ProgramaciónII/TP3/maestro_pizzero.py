@@ -4,7 +4,7 @@ from pizza import Pizza
 
 class MaestroPizzero:
     def __init__(self, nom: str):
-        self.nombre = nom
+        self.__nombre = nom
         self.ordenes = []
 
     def establecerNombre(self, nom: str):
