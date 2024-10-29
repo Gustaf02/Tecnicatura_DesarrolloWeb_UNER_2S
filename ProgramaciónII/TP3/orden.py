@@ -1,52 +1,38 @@
 from pizza import Pizza
 
 class Orden:
+    # Estados posibles para una orden
     ESTADO_INICIAL = 1
     ESTADO_PARA_ENTREGAR = 2
     ESTADO_ENTREGADA = 3
 
+    # CONSTRUCTOR: Inicializa la orden con un número y una lista de pizzas
     def __init__(self, nro: int, pizzas: list[Pizza]):
-        self.nroOrden = nro
-        self.pizzas = pizzas
-        self.estadoOrden = Orden.ESTADO_INICIAL
+        self.nroOrden = nro  # Número de la orden
+        self.pizzas = pizzas  # Lista de pizzas en la orden
+        self.estadoOrden = Orden.ESTADO_INICIAL  # Estado inicial de la orden
 
+    # COMANDO: Agrega una pizza a la orden
     def agregar_pizza(self, pizza: Pizza):
         self.pizzas.append(pizza)
 
+    # COMANDO: Cambia el estado de la orden a "para entregar"
     def cambiar_estado_para_entregar(self):
         self.estadoOrden = Orden.ESTADO_PARA_ENTREGAR
 
-    def establecer_pizzas (self, pizzas: Pizza):
-        self.pizzas = pizzas
-
-    def entregar_pizzas(self):
-        for pizza in self.pizzas:
-            pizza.entregar()
-
+    # CONSULTA: Verifica si todas las pizzas fueron entregadas
     def todas_pizzas_entregadas(self):
         return all(pizza.estado == Pizza.ESTADO_ENTREGADA for pizza in self.pizzas)
 
+    # CONSULTA: Devuelve una representación en texto de la orden
     def __str__(self):
         estado = {1: "Inicial", 2: "Para Entregar", 3: "Entregada"}
         return f"Orden {self.nroOrden} - Estado: {estado[self.estadoOrden]} - Pizzas: {len(self.pizzas)}"
-    
+
+    # CONSULTA: Calcula el precio total de la orden
     def precio_total(self):
         return sum(pizza.variedad.precio for pizza in self.pizzas)
-    
-    def entregar_pizzas(self):
-        for pizza in self.pizzas:
-            pizza.entregar()
 
-    def todas_pizzas_entregadas(self):
-        return all(pizza.estado == Pizza.ESTADO_ENTREGADA for pizza in self.pizzas)
-
-    def __str__(self):
-        estado = {1: "Inicial", 2: "Para Entregar", 3: "Entregada"}
-        return f"Orden {self.nroOrden} - Estado: {estado[self.estadoOrden]} - Pizzas: {len(self.pizzas)}"
-    
-    def precio_total(self):
-        return sum(pizza.variedad.precio for pizza in self.pizzas)
-    
 
 
 

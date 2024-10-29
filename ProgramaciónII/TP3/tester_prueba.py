@@ -6,9 +6,11 @@ from maestro_pizzero import MaestroPizzero
 class Tester:
 
     @staticmethod
+    #Ingreso de datos variedad y precio 
     def pedir_variedad_pizza():
         nombre = input("Ingrese el nombre de la variedad de pizza: ")
         while True:
+            #Validacion precio mayor que 0
             try:
                 precio = float(input("Ingrese el precio de la pizza: "))
                 if precio > 0:
@@ -75,12 +77,12 @@ class Tester:
         nro_orden = 1
 
         while True:
-            print("\n=== Menú ===")
+            print("\n### PIPO PIZZERIA ###")
             print("1. Crear variedad de pizza")
             print("2. Crear orden")
             print("3. Agregar pizzas a una orden")
             print("4. Ver órdenes")
-            print("5. Pizzero tomar pedido")
+            print("5. Pizzero tomar ordenes")
             print("6. Pizzero cocinar pizzas")
             print("7. Mozo 1 servir pizza")
             print("8. Mozo 2 servir pizza")
@@ -138,9 +140,10 @@ class Tester:
                     for orden in ordenes:
                         if orden.estadoOrden == Orden.ESTADO_INICIAL:
                             maestro.tomarPedido(orden)
-                    print("El maestro pizzero ha tomado todos los pedidos pendientes.")
+                    print(f"El maestro pizzero {maestro.obtenerNombre()} ha tomado todos los pedidos pendientes.")
                 else:
                     print("No hay órdenes disponibles para tomar.")
+
             elif opcion == "6":
                 # Pizzero cocina pizzas
                 if ordenes:
@@ -198,7 +201,7 @@ class Tester:
                     print(f"El mozo {mozo.obtenerNombre()} está sirviendo pizzas.")
                     pizzas_mozo = mozo.obtenerPizzas()
                     for pizza in pizzas_mozo:
-                        print(f"   Pizza: {pizza.variedad.nombreVariedad} - Estado: {pizza.estado}")
+                        print(f"Pizza: {pizza.variedad.nombreVariedad} - Estado: {pizza.estado}")
                 if mozo.obtenerEstadoLibre():
                     print(f"El mozo {mozo2.obtenerNombre()} está libre.")
                 else:
