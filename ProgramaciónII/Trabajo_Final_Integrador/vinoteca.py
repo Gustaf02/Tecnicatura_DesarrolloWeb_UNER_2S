@@ -18,20 +18,26 @@ class Vinoteca:
     def inicializar():
         datos = Vinoteca.__parsearArchivoDeDatos()
         Vinoteca.__convertirJsonAListas(datos)
+        
 
     def obtenerBodegas(orden=None, reverso=False):
         if isinstance(orden, str):
             if orden == "nombre":
-                pass  # completar
-            elif orden == "vinos":
-                pass  # completar
-        pass  # completar
+                return Vinoteca.__bodegas["nombre"]
+        #     elif orden == "vinos":
+        #         pass  # completar
+        # pass  # completar
 
     def obtenerCepas(orden=None, reverso=False):
+        c=[]
         if isinstance(orden, str):
             if orden == "nombre":
-                pass  # completar
-        pass  # completar
+                c.append(Vinoteca.__cepas[0])
+                print(c)
+                return c
+        
+
+        
 
     def obtenerVinos(anio=None, orden=None, reverso=False):
         if isinstance(anio, int):
@@ -71,9 +77,10 @@ class Vinoteca:
             
             Vinoteca.__bodegas.append(Bodega(bodega["id"], 
                                              bodega["nombre"],))
-            print(f"===BODEGA==={contador}")
-            print(bodega)
-            contador += 1
+            #Vinoteca.__bodegas.append(bodega)
+            # print(f"===BODEGA==={contador}")
+            # print(bodega)
+            # contador += 1
 
         contador = 1    
         for vino in lista["vinos"]:
@@ -81,22 +88,24 @@ class Vinoteca:
                                          vino["nombre"], 
                                          vino["bodega"],
                                          vino["cepas"]))
-            
-            print(f"===VINO==={contador}")
-            print(vino)
-            contador += 1
+            #print(Vinoteca.__vinos)
+            # print(f"===VINO==={contador}")
+            # print(vino["nombre"])
+            # contador += 1
 
         contador = 1
         for cepa in lista["cepas"]:
             Vinoteca.__cepas.append(Cepa(cepa["id"], 
                                          cepa["nombre"]))
 
-            print(f"===CEPA==={contador}")
-            print(cepa)
-            contador += 1
+            # print(f"===CEPA==={contador}")
+            # print(cepa)
+            # contador += 1
         
-        # pass  # completar
+    
 
 
 v=Vinoteca
 v.inicializar()
+v.obtenerBodegas()
+v.obtenerCepas("nombre")
