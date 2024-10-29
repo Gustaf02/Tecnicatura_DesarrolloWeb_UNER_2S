@@ -2,6 +2,9 @@ import json
 
 
 class Cepa:
+    def __init__(self, id, nombre):
+        self.id=id
+        self.nombre=nombre
 
     def __repr__(self):
         return json.dumps({"nombre": self.obtenerNombre()})
