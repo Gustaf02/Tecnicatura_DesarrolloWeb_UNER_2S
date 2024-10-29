@@ -22,10 +22,10 @@ class Vinoteca:
     def obtenerBodegas(orden=None, reverso=False):
         if isinstance(orden, str):
             if orden == "nombre":
-                pass  # completar
-            elif orden == "vinos":
-                pass  # completar
-        pass  # completar
+                return Vinoteca.__bodegas["nombre"]
+        #     elif orden == "vinos":
+        #         pass  # completar
+        # pass  # completar
 
     def obtenerCepas(orden=None, reverso=False):
         if isinstance(orden, str):
@@ -100,3 +100,4 @@ class Vinoteca:
 
 v=Vinoteca
 v.inicializar()
+v.obtenerBodegas()
