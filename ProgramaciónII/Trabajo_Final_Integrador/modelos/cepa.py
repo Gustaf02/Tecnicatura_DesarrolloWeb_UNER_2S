@@ -6,15 +6,15 @@ class Cepa:
         self.id=id
         self.nombre=nombre
 
-    def __repr__(self):
-        return json.dumps({"nombre": self.obtenerNombre()})
+    # def __repr__(self):
+    #     return json.dumps({"nombre": self.obtenerNombre()})
 
-    def convertirAJSON(self):
-        return {
-            "id": self.obtenerId(),
-            "nombre": self.obtenerNombre(),
-            "vinos": len(self.obtenerVinos()),
-        }
+    # def convertirAJSON(self):
+    #     return {
+    #         "id": self.obtenerId(),
+    #         "nombre": self.obtenerNombre(),
+    #         "vinos": len(self.obtenerVinos()),
+    #     }
 
     def convertirAJSONFull(self):
         return {

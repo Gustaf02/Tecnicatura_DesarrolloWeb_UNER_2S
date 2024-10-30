@@ -32,7 +32,9 @@ class Vinoteca:
         c=[]
         if isinstance(orden, str):
             if orden == "nombre":
-                c.append(Vinoteca.__cepas[0])
+                for n in Vinoteca.__cepas:
+                    
+                    c.append(n)
                 print(c)
                 return c
         
@@ -71,14 +73,16 @@ class Vinoteca:
             return None
 
     def __convertirJsonAListas(lista):
+        #print(lista)
         #Carga los datos de las lista bodegas a __bodegas
         contador = 1
         for bodega in lista["bodegas"]:
             
             Vinoteca.__bodegas.append(Bodega(bodega["id"], 
                                              bodega["nombre"],))
+            #return Vinoteca.__bodegas
             #Vinoteca.__bodegas.append(bodega)
-            # print(f"===BODEGA==={contador}")
+            # print(f"===BODEGA==={contador}")J
             # print(bodega)
             # contador += 1
 
@@ -101,6 +105,7 @@ class Vinoteca:
             # print(f"===CEPA==={contador}")
             # print(cepa)
             # contador += 1
+    
         
     
 
@@ -109,3 +114,4 @@ v=Vinoteca
 v.inicializar()
 v.obtenerBodegas()
 v.obtenerCepas("nombre")
+
