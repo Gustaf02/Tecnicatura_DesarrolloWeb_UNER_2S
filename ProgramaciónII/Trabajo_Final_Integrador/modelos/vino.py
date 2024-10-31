@@ -2,11 +2,12 @@ import json
 
 
 class Vino:
-    def __init__(self, id, nombre, bodega, cepas):
+    def __init__(self, id, nombre, bodega, cepas, partida):
         self.id=id
         self.nombre=nombre
         self.bodega=bodega
         self.cepas=cepas
+        self.partida=partida
 
     def __repr__(self):
         return json.dumps({"nombre": self.obtenerNombre()})
