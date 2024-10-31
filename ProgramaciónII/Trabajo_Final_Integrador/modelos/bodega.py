@@ -1,11 +1,16 @@
 import json
-from vinoteca import Vinoteca  # Importamos la clase Vinoteca
+from vinoteca import Vinoteca  
+from entidadvineria import EntidadVineria
 
 class Bodega:
     def __init__(self, id, nombre):
-        self.id = id
-        self.nombre = nombre
-        self.cepas = []
+        # self.id = id
+        # self.nombre = nombre
+        # self.cepas = []
+        # self.vinos = []
+
+        super().__init__(id, nombre) 
+        self.cepas = [] 
         self.vinos = []
 
     # Consultas: Se recuperan todos los vinos de la vinoteca y se filtran aquellos que pertenecen a la bodega.
@@ -54,8 +59,4 @@ class Bodega:
         vinosMapa = map(lambda a: a.nombre, vinos)
         return list(vinosMapa)
 
-    def obtenerNombre(self):
-        return self.nombre
-
-    def obtenerId(self):
-        return self.id
+    

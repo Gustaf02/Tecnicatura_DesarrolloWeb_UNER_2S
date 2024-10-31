@@ -1,12 +1,15 @@
 import json 
 from vinoteca import Vinoteca
+from entidadvineria import EntidadVineria
 
 class Cepa:
 
   def __init__(self, id, nombre): 
-    self.id = id 
-    self.nombre = nombre 
-    
+    # self.id = id 
+    # self.nombre = nombre 
+
+    super().__init__(id, nombre)
+
     # Consultas: Se recuperan vinos de la vinoteca
     def obtenerVinos(self): 
          todos_vinos = Vinoteca.obtenerVinos() 
@@ -42,8 +45,4 @@ class Cepa:
         )
         return list(vinosMapa)
     
-    # Métodos auxiliares para obtener nombre e id 
-    def obtenerNombre(self): 
-        return self.nombre 
-    def obtenerId(self): 
-        return self.id
+   
