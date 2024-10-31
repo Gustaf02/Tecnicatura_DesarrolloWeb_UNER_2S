@@ -14,45 +14,63 @@ class Vinoteca:
     __bodegas = []
     __cepas = []
     __vinos = []
+    @classmethod
 
+    def obtener_bodegas(cls):
+        return cls.__bodegas
+    def  obtenerBodegas(orden=None, reverso=False):
+        for bodega in Vinoteca.obtener_bodegas():
+            if isinstance(orden, str):
+                if orden == bodega.nombre:
+                    print(bodega.id)
+    
+    @classmethod
+    def obtener_cepas(cls):
+        return cls.__cepas
+    def obtenerCepas(orden=None, reverso=False):
+        for cepa in Vinoteca.obtener_cepas():
+            if isinstance(orden, str):
+                if orden == cepa.nombre:
+                    print(cepa.id)
+    
+    @classmethod
+    def obtener_vinos(cls):
+        return cls.__vinos
+    def obtenerVinos(orden=None, reverso=False):
+        print("====VINOS====")
+        for vino in Vinoteca.obtener_vinos():
+             if isinstance(orden, str):
+                if orden == vino.nombre:
+                    print(f"Nombre: {vino.nombre}\n Bodega: {vino.bodega}\n Cepas: {vino.cepas}\n ID: {vino.id}\n {vino.partida}")
+                elif orden == vino.bodega:
+                    print(f"Bodega: {vino.bodega}\n Nombre: {vino.nombre}\n Cepas: {vino.cepas}\n ID: {vino.id}")
+                elif orden == vino.cepas:
+                    print(f"Cepas: {vino.cepas}\nBodega: {vino.bodega}\n, Nombre: {vino.nombre}\n,ID: {vino.id}")
+                     
     def inicializar():
         datos = Vinoteca.__parsearArchivoDeDatos()
         Vinoteca.__convertirJsonAListas(datos)
-
-    def obtenerBodegas(orden=None, reverso=False):
-        if isinstance(orden, str):
-            if orden == "nombre":
-                return Vinoteca.__bodegas["nombre"]
-        #     elif orden == "vinos":
-        #         pass  # completar
-        # pass  # completar
-
-    def obtenerCepas(orden=None, reverso=False):
-        if isinstance(orden, str):
-            if orden == "nombre":
-                pass  # completar
-        pass  # completar
-
-    def obtenerVinos(anio=None, orden=None, reverso=False):
-        if isinstance(anio, int):
-            pass  # completar
-        if isinstance(orden, str):
-            if orden == "nombre":
-                pass  # completar
-            elif orden == "bodega":
-                pass  # completar
-            elif orden == "cepas":
-                pass  # completar
-        pass  # completar
-
+        
     def buscarBodega(id):
-        pass  # completar
+        for bodega in Vinoteca.obtener_bodegas():
+            if isinstance(id, str):
+                if id == bodega.id:
+                    print(bodega.nombre)
+        
 
     def buscarCepa(id):
-        pass  # completar
+        for cepa in Vinoteca.obtener_cepas():
+            if isinstance(id, str):
+                if id == cepa.id:
+                    print(cepa.nombre)
+        
 
     def buscarVino(id):
-        pass  # completar
+        for vino in Vinoteca.obtener_vinos():
+            if isinstance(id, str):
+                if id == vino.id:
+                    print(vino.nombre)
+        
 
     def __parsearArchivoDeDatos():
         try:
@@ -65,39 +83,28 @@ class Vinoteca:
             return None
 
     def __convertirJsonAListas(lista):
-        #Carga los datos de las lista bodegas a __bodegas
-        contador = 1
         for bodega in lista["bodegas"]:
-            
-            Vinoteca.__bodegas.append(Bodega(bodega["id"], 
+             Vinoteca.__bodegas.append(Bodega(bodega["id"], 
                                              bodega["nombre"],))
-            print(f"===BODEGA==={contador}")
-            print(bodega)
-            contador += 1
 
-        contador = 1    
         for vino in lista["vinos"]:
             Vinoteca.__vinos.append(Vino(vino["id"],
                                          vino["nombre"], 
                                          vino["bodega"],
-                                         vino["cepas"]))
-            
-            print(f"===VINO==={contador}")
-            print(vino)
-            contador += 1
+                                         vino["cepas"],
+                                         vino["partidas"]))
 
-        contador = 1
         for cepa in lista["cepas"]:
             Vinoteca.__cepas.append(Cepa(cepa["id"], 
                                          cepa["nombre"]))
 
-            print(f"===CEPA==={contador}")
-            print(cepa)
-            contador += 1
-        
-        # pass  # completar
-
-
 v=Vinoteca
 v.inicializar()
-v.obtenerBodegas()
+v.obtenerBodegas("Casa La Primavera Bodegas y Viñedos")
+v.obtenerCepas("Malbec")
+v.obtenerVinos("Escandalosos")
+v.buscarBodega("a0117be3-2ea6-8db1-8901-1be2adf61c29")
+v.buscarCepa("e076a2c8-b1f5-136e-8319-0ee0b5c02091")
+v.buscarVino("51461f52-89b8-d702-0673-2cc5ac75085c")
+
+
