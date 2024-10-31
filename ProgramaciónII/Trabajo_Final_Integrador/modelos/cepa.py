@@ -1,8 +1,8 @@
 import json 
 from vinoteca import Vinoteca
-from entidadvineria import EntidadVineria
+from modelos.entidadvineria import EntidadVineria
 
-class Cepa:
+class Cepa(EntidadVineria):
 
   def __init__(self, id, nombre): 
     # self.id = id 
