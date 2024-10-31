@@ -1,8 +1,18 @@
-import json
-
+import json 
+from vinoteca import Vinoteca
 
 class Cepa:
 
+  def __init__(self, id, nombre): 
+    self.id = id 
+    self.nombre = nombre 
+    
+    # Consultas: Se recuperan vinos de la vinoteca
+    def obtenerVinos(self): 
+         todos_vinos = Vinoteca.obtenerVinos() 
+         vinos_cepa = [vino for vino in todos_vinos if vino.cepa_id == self.id] 
+         return vinos_cepa
+        
     def __repr__(self):
         return json.dumps({"nombre": self.obtenerNombre()})
 
@@ -20,6 +30,7 @@ class Cepa:
             "vinos": self.__mapearVinos(),
         }
 
+    # Métodos privados. Se mapean vinos. 
     def __mapearVinos(self):
         vinos = self.obtenerVinos()
         vinosMapa = map(
@@ -30,3 +41,9 @@ class Cepa:
             vinos,
         )
         return list(vinosMapa)
+    
+    # Métodos auxiliares para obtener nombre e id 
+    def obtenerNombre(self): 
+        return self.nombre 
+    def obtenerId(self): 
+        return self.id
