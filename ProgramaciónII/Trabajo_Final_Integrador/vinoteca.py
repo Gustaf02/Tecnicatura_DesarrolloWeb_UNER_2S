@@ -31,7 +31,8 @@ class Vinoteca:
         for cepa in Vinoteca.obtener_cepas():
             if isinstance(orden, str):
                 if orden == cepa.nombre:
-                    print(cepa.id)
+                    #print(cepa.id)
+                    return cepa.id
     
     @classmethod
     def obtener_vinos(cls):
@@ -62,7 +63,8 @@ class Vinoteca:
         for cepa in Vinoteca.obtener_cepas():
             if isinstance(id, str):
                 if id == cepa.id:
-                    print(cepa.nombre)
+                    #print(cepa.nombre)
+                    return cepa.nombre
         
 
     def buscarVino(id):
@@ -85,7 +87,7 @@ class Vinoteca:
     def __convertirJsonAListas(lista):
         for bodega in lista["bodegas"]:
              Vinoteca.__bodegas.append(Bodega(bodega["id"], 
-                                             bodega["nombre"],))
+                                              bodega["nombre"],))
 
         for vino in lista["vinos"]:
             Vinoteca.__vinos.append(Vino(vino["id"],
@@ -100,11 +102,11 @@ class Vinoteca:
 
 v=Vinoteca
 v.inicializar()
-v.obtenerBodegas("Casa La Primavera Bodegas y Viñedos")
+#v.obtenerBodegas("Casa La Primavera Bodegas y Viñedos")
 v.obtenerCepas("Malbec")
-v.obtenerVinos("Escandalosos")
-v.buscarBodega("a0117be3-2ea6-8db1-8901-1be2adf61c29")
+#v.obtenerVinos("Escandalosos")
+#v.buscarBodega("a0117be3-2ea6-8db1-8901-1be2adf61c29")
 v.buscarCepa("e076a2c8-b1f5-136e-8319-0ee0b5c02091")
-v.buscarVino("51461f52-89b8-d702-0673-2cc5ac75085c")
+#v.buscarVino("51461f52-89b8-d702-0673-2cc5ac75085c")
 
 
