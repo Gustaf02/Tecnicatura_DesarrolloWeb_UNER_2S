@@ -35,7 +35,7 @@ class RecursoBodegas(Resource):
             json.loads(json.dumps(bodegas, default=lambda o: o.convertirAJSON())),
             200,
         )
-
+47098080
 
 class RecursoCepa(Resource):
 
