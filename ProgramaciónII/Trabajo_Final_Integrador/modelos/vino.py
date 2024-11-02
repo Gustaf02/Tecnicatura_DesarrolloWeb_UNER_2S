@@ -25,7 +25,7 @@ class Vino:
         return {
             "id": self.obtenerId(),
             "nombre": self.obtenerNombre(),
-            "bodega": self.obtenerBodega().obtenerNombre(),
+            "bodega": self.obtenerBodega().obtenerNombre(), 
             "cepas": self.__mapearCepas(),
             "partidas": self.__partidas,
         }
