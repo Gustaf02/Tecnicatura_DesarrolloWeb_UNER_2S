@@ -1,5 +1,5 @@
 import json
-from vinoteca import Vinoteca  
+
 from modelos.entidadvineria import EntidadVineria
 
 class Bodega(EntidadVineria):
@@ -15,16 +15,23 @@ class Bodega(EntidadVineria):
 
     # Consultas: Se recuperan todos los vinos de la vinoteca y se filtran aquellos que pertenecen a la bodega.
     def obtenerVinos(self):
+        from vinoteca import Vinoteca
         todos_vinos = Vinoteca.obtenerVinos()
-        vinos_bodega = [vino for vino in todos_vinos if vino.bodega_id == self.id]
-        self.vinos = vinos_bodega
-        return vinos_bodega
+        print(f"Todos los vinos: {todos_vinos}")
+        if todos_vinos is not None: 
+            vinos_bodega = [vino for vino in todos_vinos if vino.obtenerBodega() and vino.obtenerBodega().obtenerId() == self.id]
+            self.vinos = vinos_bodega 
+            print(f"Vinos de la bodega {self.nombre}: {vinos_bodega}")
+            return vinos_bodega 
+        return []
 
     # Se obtienen todos los vinos de la vinoteca y se filtran de acuerdo con las cepas.
     def obtenerCepas(self):
         vinos_bodega = self.obtenerVinos()
-        cepas_bodega = {vino.cepa for vino in vinos_bodega}
+        print(f"Vinos de la bodega {self.nombre} para obtener cepas: {vinos_bodega}")
+        cepas_bodega = {cepa.obtenerId() for vino in vinos_bodega for cepa in vino.obtenerCepas()}
         self.cepas = list(cepas_bodega)
+        print(f"Cepas de la bodega {self.nombre}: {cepas_bodega}")
         return list(cepas_bodega)
 
     def __repr__(self):
