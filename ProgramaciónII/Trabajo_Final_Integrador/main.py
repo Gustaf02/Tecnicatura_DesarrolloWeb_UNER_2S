@@ -1,8 +1,6 @@
-# Flask
-from flask import Flask
-from flask_restful import Api
-
-from vinoteca import Vinoteca
+from integrador import *
+from flask_restful import Resource, Api  # Asegúrate de importar Api también
+from flask import Flask, request  # Aquí importamos Flask
 
 # API
 from recursos import *
@@ -10,7 +8,7 @@ from recursos import *
 if __name__ == "__main__":
     Vinoteca.inicializar()
 
-    app = Flask(__name__)
+    app = Flask(__name__)  # Ahora Flask debería estar definido
 
     api = Api(app)
     api.add_resource(RecursoBodega, '/api/bodegas/<id>')
@@ -21,3 +19,6 @@ if __name__ == "__main__":
     api.add_resource(RecursoVinos, '/api/vinos')
 
     app.run(debug=True)
+
+
+
