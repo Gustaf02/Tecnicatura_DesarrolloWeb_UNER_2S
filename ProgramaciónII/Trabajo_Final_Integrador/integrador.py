@@ -150,26 +150,15 @@ class Cepa():
 
     def convertirAJSON(self):
         return {
-<<<<<<< HEAD
             "id": Vinoteca.obtenerId(),
             "nombre": Vinoteca.obtenerNombre(),
             "vinos": len(Vinoteca.obtenerVinos()),
-=======
-            "id": self.obtenerId(),
-            "nombre": self.obtenerNombre(),
-            "vinos": len(self.obtenerVinos()),
->>>>>>> origin/TFI
         }
 
     def convertirAJSONFull(self):
         return {
-<<<<<<< HEAD
             "id": Vinoteca.obtenerId(),
             "nombre": Vinoteca.obtenerNombre(),
-=======
-            "id": self.obtenerId(),
-            "nombre": self.obtenerNombre(),
->>>>>>> origin/TFI
             "vinos": self.__mapearVinos(),
         }
 
