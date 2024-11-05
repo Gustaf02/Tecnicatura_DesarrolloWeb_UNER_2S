@@ -22,7 +22,8 @@ class Vinoteca:
         for bodega in Vinoteca.obtener_bodegas():
             if isinstance(orden, str):
                 if orden == bodega.nombre:
-                    print(bodega.id)
+                    print(bodega)
+                    return 
     
     @classmethod
     def obtener_cepas(cls):
@@ -38,16 +39,22 @@ class Vinoteca:
     def obtener_vinos(cls):
         return cls.__vinos
     def obtenerVinos(orden=None, reverso=False):
-        print("====VINOS====")
-        for vino in Vinoteca.obtener_vinos():
-             if isinstance(orden, str):
+        
+        for vino in Vinoteca.obtener_vinos():     
+            if isinstance(orden, str):
                 if orden == vino.nombre:
-                    print(f"Nombre: {vino.nombre}\n Bodega: {vino.bodega}\n Cepas: {vino.cepas}\n ID: {vino.id}\n {vino.partida}")
+                    #print(f"Nombre: {vino.nombre}\n Bodega: {vino.bodega}\n Cepas: {vino.cepas}\n ID: {vino.id}\n {vino.partida}")
+                    return vino
                 elif orden == vino.bodega:
-                    print(f"Bodega: {vino.bodega}\n Nombre: {vino.nombre}\n Cepas: {vino.cepas}\n ID: {vino.id}")
-                elif orden == vino.cepas:
-                    print(f"Cepas: {vino.cepas}\nBodega: {vino.bodega}\n, Nombre: {vino.nombre}\n,ID: {vino.id}")
-                     
+                    #print(f"Bodega: {vino.bodega}\n Nombre: {vino.nombre}\n Cepas: {vino.cepas}\n ID: {vino.id}")
+                    return vino
+                # elif  reverso == "si":
+                #         if isinstance(reverso, str):
+                # # Si reverso es "si", invertimos el orden de la lista
+                #          vinos = list(reversed(vino))
+                #          print(vinos)
+
+                   
     def inicializar():
         datos = Vinoteca.__parsearArchivoDeDatos()
         Vinoteca.__convertirJsonAListas(datos)
@@ -56,7 +63,8 @@ class Vinoteca:
         for bodega in Vinoteca.obtener_bodegas():
             if isinstance(id, str):
                 if id == bodega.id:
-                    print(bodega.nombre)
+                    return bodega
+                    #print(bodega)
         
 
     def buscarCepa(id):
@@ -103,10 +111,11 @@ class Vinoteca:
 v=Vinoteca
 v.inicializar()
 #v.obtenerBodegas("Casa La Primavera Bodegas y Viñedos")
-v.obtenerCepas("Malbec")
+#v.obtenerCepas("Malbec")
 #v.obtenerVinos("Escandalosos")
-#v.buscarBodega("a0117be3-2ea6-8db1-8901-1be2adf61c29")
-v.buscarCepa("e076a2c8-b1f5-136e-8319-0ee0b5c02091")
+v.obtenerVinos("Motociclista")
+#v.buscarBodega("a0900e61-0f72-67ae-7e9d-4218da29b7d8")
+#v.buscarCepa("e076a2c8-b1f5-136e-8319-0ee0b5c02091")
 #v.buscarVino("51461f52-89b8-d702-0673-2cc5ac75085c")
 
 
