@@ -181,23 +181,6 @@ class Bodega:
         self.id=id
         self.nombre=nombre
 
-<<<<<<< HEAD
-    def __repr__(self):
-        return json.dumps(self.convertirAJSON())
-
-    def convertirAJSON(self):
-        return {
-            "id": Vinoteca.obtenerId(),
-            "nombre": Vinoteca.obtenerNombre(),
-            "cepas": self.__mapearCepas(),
-            "vinos": len(self.obtenerVinos()),
-        }                       
-
-    def convertirAJSONFull(self):
-        return {
-            "id": Vinoteca.obtenerId(),
-            "nombre": Vinoteca.obtenerNombre(),
-=======
     # def __repr__(self):
     #     return json.dumps(self.convertirAJSON())
 
@@ -213,22 +196,10 @@ class Bodega:
         return {
             "id": self.obtenerId(),
             "nombre": self.obtenerNombre(),
->>>>>>> origin/TFI
             "cepas": self.__mapearCepas(),
             "vinos": self.__mapearVinos(),
         }
 
-<<<<<<< HEAD
-    def __mapearCepas(self):
-        cepas = Vinoteca.obtenerCepas()
-        cepasMapa = map(lambda a: a.obtenerNombre(), cepas)
-        return list(cepasMapa)
-
-    def __mapearVinos(self):
-        vinos = Vinoteca.obtenerVinos()
-        vinosMapa = map(lambda a: a.obtenerNombre(), vinos)
-        return list(vinosMapa)
-=======
     # def __mapearCepas(self):
     #     cepas = self.obtenerCepas()
     #     cepasMapa = map(lambda a: a.obtenerNombre(), cepas)
@@ -238,7 +209,6 @@ class Bodega:
     #     vinos = self.obtenerVinos()
     #     vinosMapa = map(lambda a: a.obtenerNombre(), vinos)
     #     return list(vinosMapa)
->>>>>>> origin/TFI
 
 
 
@@ -350,9 +320,4 @@ v.buscarVino("51461f52-89b8-d702-0673-2cc5ac75085c")
 Instancias vino prueba
 """
 
-<<<<<<< HEAD
             
-
-=======
-            
->>>>>>> origin/TFI
