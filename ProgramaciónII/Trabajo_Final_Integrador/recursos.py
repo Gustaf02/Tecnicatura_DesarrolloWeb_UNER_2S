@@ -21,20 +21,15 @@ class RecursoBodega(Resource):
 
 
 class RecursoBodegas(Resource):
-
     def get(self):
-        orden = request.args.get("orden")
-        if orden:
-            reverso = request.args.get("reverso")
-            bodegas = vinoteca.Vinoteca.obtenerBodegas(
-                orden=orden, reverso=reverso == "si"
-            )
+        orden = request.args.get('orden')
+        reverso = request.args.get('reverso', 'no') == 'si'
+        bodegas = vinoteca.Vinoteca.obtener_bodegas(orden, reverso)
+        if bodegas:
+            bodegas_json = [b.convertirAJSON() for b in bodegas]
+            return json.loads(json.dumps(bodegas_json)), 200
         else:
-            bodegas = vinoteca.Vinoteca.obtenerBodegas()
-        return (
-            json.loads(json.dumps(bodegas, default=lambda o: o.convertirAJSON())),
-            200,
-        )
+            return {"error": "No se encontraron bodegas"}, 404
 
 
 class RecursoCepa(Resource):
@@ -48,18 +43,16 @@ class RecursoCepa(Resource):
 
 
 class RecursoCepas(Resource):
-
     def get(self):
-        orden = request.args.get("orden")
-        if orden:
-            reverso = request.args.get("reverso")
-            cepas = vinoteca.Vinoteca.obtenerCepas(orden=orden, reverso=reverso == "si")
+        orden = request.args.get('orden')
+        reverso = request.args.get('reverso', 'no') == 'si'
+        cepas = vinoteca.Vinoteca.obtener_cepas(orden, reverso)
+        if cepas:
+            cepas_json = [c.convertirAJSON() for c in cepas]
+            return json.loads(json.dumps(cepas_json)), 200
         else:
-            cepas = vinoteca.Vinoteca.obtenerCepas()
-        return (
-            json.loads(json.dumps(cepas, default=lambda o: o.convertirAJSONFull())),
-            200,
-        )
+            return {"error": "No se encontraron cepas"}, 404
+
 
 
 class RecursoVino(Resource):
@@ -72,18 +65,19 @@ class RecursoVino(Resource):
             return {"error": "Vino no encontrado"}, 404
 
 
-class RecursoVinos(Resource):
 
+class RecursoVinos(Resource):
     def get(self):
-        anio = request.args.get("anio")
-        if anio:
-            anio = int(anio)
-        orden = request.args.get("orden")
-        if orden:
-            reverso = request.args.get("reverso")
-            vinos = vinoteca.Vinoteca.obtenerVinos(
-                anio, orden=orden, reverso=reverso == "si"
-            )
+        orden = request.args.get('orden')
+        reverso = request.args.get('reverso', 'no') == 'si'
+        anios = request.args.get('anios')
+        if anios:
+            anios = [int(anio) for anio in anios.split(',')]
+        vinos = vinoteca.Vinoteca.obtener_vinos(orden, reverso, anios)
+        if vinos:
+            vinos_json = [v.convertirAJSON() for v in vinos]
+            return json.loads(json.dumps(vinos_json)), 200
         else:
-            vinos = vinoteca.Vinoteca.obtenerVinos(anio)
-        return json.loads(json.dumps(vinos, default=lambda o: o.convertirAJSON())), 200
+            return {"error": "No se encontraron vinos"}, 404
+
+

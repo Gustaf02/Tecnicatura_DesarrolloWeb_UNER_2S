@@ -1,5 +1,5 @@
 import json
-from vinoteca import Vinoteca  
+
 from modelos.entidadvineria import EntidadVineria
 
 class Bodega(EntidadVineria):
@@ -15,17 +15,22 @@ class Bodega(EntidadVineria):
 
     # Consultas: Se recuperan todos los vinos de la vinoteca y se filtran aquellos que pertenecen a la bodega.
     def obtenerVinos(self):
-        todos_vinos = Vinoteca.obtenerVinos()
-        vinos_bodega = [vino for vino in todos_vinos if vino.bodega_id == self.id]
-        self.vinos = vinos_bodega
-        return vinos_bodega
+        from vinoteca import Vinoteca
+        todos_vinos = Vinoteca.obtener_vinos()
+        if todos_vinos is not None:
+         vinos_bodega = [vino for vino in todos_vinos if vino.obtenerBodega() and vino.obtenerBodega().obtenerId() == self.id]
+         self.vinos = vinos_bodega
+         return vinos_bodega
+        return []
+
 
     # Se obtienen todos los vinos de la vinoteca y se filtran de acuerdo con las cepas.
     def obtenerCepas(self):
         vinos_bodega = self.obtenerVinos()
-        cepas_bodega = {vino.cepa for vino in vinos_bodega}
+        cepas_bodega = {cepa for vino in vinos_bodega for cepa in vino.obtenerCepas()}
         self.cepas = list(cepas_bodega)
         return list(cepas_bodega)
+
 
     def __repr__(self):
         return json.dumps(self.convertirAJSON())
@@ -50,13 +55,12 @@ class Bodega(EntidadVineria):
 
     # Métodos privados para mapear cepas y vinos
     def __mapearCepas(self):
-        cepas = self.obtenerCepas()
-        cepasMapa = map(lambda a: a.nombre, cepas)
-        return list(cepasMapa)
+     cepas = self.obtenerCepas()
+     return [cepa.nombre for cepa in cepas]
 
     def __mapearVinos(self):
-        vinos = self.obtenerVinos()
-        vinosMapa = map(lambda a: a.nombre, vinos)
-        return list(vinosMapa)
+     vinos = self.obtenerVinos()
+     return [vino.nombre for vino in vinos]
+
 
     
