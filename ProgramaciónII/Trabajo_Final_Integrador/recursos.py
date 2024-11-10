@@ -22,7 +22,9 @@ class RecursoBodega(Resource):
 
 class RecursoBodegas(Resource):
     def get(self):
-        bodegas = vinoteca.Vinoteca.obtener_bodegas()
+        orden = request.args.get('orden')
+        reverso = request.args.get('reverso', 'no') == 'si'
+        bodegas = vinoteca.Vinoteca.obtener_bodegas(orden, reverso)
         if bodegas:
             bodegas_json = [b.convertirAJSON() for b in bodegas]
             return json.loads(json.dumps(bodegas_json)), 200
@@ -40,13 +42,17 @@ class RecursoCepa(Resource):
             return {"error": "Cepa no encontrada"}, 404
 
 
-class RecursoCepas(Resource): 
-    def get(self): 
-        cepas = vinoteca.Vinoteca.obtener_cepas() 
-        if cepas: 
-            cepas_json = [c.convertirAJSONFull() for c in cepas] 
-            return json.loads(json.dumps(cepas_json)), 200 
-        else: return {"error": "No se encontraron cepas"}, 404
+class RecursoCepas(Resource):
+    def get(self):
+        orden = request.args.get('orden')
+        reverso = request.args.get('reverso', 'no') == 'si'
+        cepas = vinoteca.Vinoteca.obtener_cepas(orden, reverso)
+        if cepas:
+            cepas_json = [c.convertirAJSON() for c in cepas]
+            return json.loads(json.dumps(cepas_json)), 200
+        else:
+            return {"error": "No se encontraron cepas"}, 404
+
 
 
 class RecursoVino(Resource):
@@ -62,10 +68,16 @@ class RecursoVino(Resource):
 
 class RecursoVinos(Resource):
     def get(self):
-        vinos = vinoteca.Vinoteca.obtener_vinos()
+        orden = request.args.get('orden')
+        reverso = request.args.get('reverso', 'no') == 'si'
+        anios = request.args.get('anios')
+        if anios:
+            anios = [int(anio) for anio in anios.split(',')]
+        vinos = vinoteca.Vinoteca.obtener_vinos(orden, reverso, anios)
         if vinos:
             vinos_json = [v.convertirAJSON() for v in vinos]
             return json.loads(json.dumps(vinos_json)), 200
         else:
             return {"error": "No se encontraron vinos"}, 404
+
 

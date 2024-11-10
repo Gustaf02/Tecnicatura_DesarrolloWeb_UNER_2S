@@ -5,9 +5,10 @@ class Vino(EntidadVineria):
     def __init__(self, id: str, nombre: str, bodega: str, cepas: list, partidas: list):
         super().__init__(id, nombre)
         self.__bodega = bodega
-        self.__cepas = cepas
-        self.__partidas = partidas
+        self.__cepas = cepas if cepas is not None else []
+        self.__partidas = partidas if partidas is not None else []
 
+    # Consultas
     def obtenerBodega(self):
         from vinoteca import Vinoteca
         bodega = Vinoteca.buscarBodega(self.__bodega)
@@ -23,7 +24,7 @@ class Vino(EntidadVineria):
         return self.__cepas
 
     def obtenerPartidas(self):
-        return self.__partidas
+        return self.__partidas if self.__partidas else []
 
     def __repr__(self):
         return json.dumps({"nombre": self.obtenerNombre()})
@@ -46,3 +47,16 @@ class Vino(EntidadVineria):
 
     def tienePartida(self, anio):
         return anio in self.obtenerPartidas()
+
+    # Comandos (setters)
+    def establecerBodega(self, bodega: str):
+        """Establece el ID de la bodega del vino"""
+        self.__bodega = bodega
+
+    def establecerCepas(self, cepas: list):
+        """Establece la lista de IDs de cepas del vino"""
+        self.__cepas = cepas if cepas is not None else []
+
+    def establecerPartidas(self, partidas: list):
+        """Establece la lista de años de las partidas del vino"""
+        self.__partidas = partidas if partidas is not None else []
