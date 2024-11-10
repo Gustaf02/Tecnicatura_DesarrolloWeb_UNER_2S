@@ -77,9 +77,9 @@ Consulta el listado completo de cepas, incluyendo los vinos y bodegas que las of
 
 Obtiene la información de un vino específico, incluyendo la bodega que lo produce, las cepas en las que se ofrece y las partidas con las que se cuenta para él.
 
-- URL: http://localhost:5000/api/vinos/54919dcb-7ada-70ee-db7d-605650ee41f7
+- Obtén la lista de vinos (punto 2.6) y coloca el identificador único que quieras visualizar en la url como se muestra a continuación.
 
-- Obtén la lista de cepas (punto 2.6) y coloca el identificador único que quieras visualizar en la url como se muestra a continuación.
+- URL: http://localhost:5000/api/vinos/54919dcb-7ada-70ee-db7d-605650ee41f7
 
 ### 2.6 Listar Todos los Vinos
 
