@@ -150,15 +150,15 @@ class Cepa():
 
     def convertirAJSON(self):
         return {
-            "id": self.obtenerId(),
-            "nombre": self.obtenerNombre(),
-            "vinos": len(self.obtenerVinos()),
+            "id": Vinoteca.obtenerId(),
+            "nombre": Vinoteca.obtenerNombre(),
+            "vinos": len(Vinoteca.obtenerVinos()),
         }
 
     def convertirAJSONFull(self):
         return {
-            "id": self.obtenerId(),
-            "nombre": self.obtenerNombre(),
+            "id": Vinoteca.obtenerId(),
+            "nombre": Vinoteca.obtenerNombre(),
             "vinos": self.__mapearVinos(),
         }
 
@@ -321,4 +321,7 @@ Instancias vino prueba
 """
 
             
+<<<<<<< HEAD
 
+=======
+>>>>>>> f8e458ad459d2982b68be198fa930f6102e3afcb

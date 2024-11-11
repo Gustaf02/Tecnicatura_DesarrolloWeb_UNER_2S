@@ -3,17 +3,12 @@ from flask import request
 
 import json
 
-import vinoteca
-
-from modelos.bodega import Bodega
-from modelos.cepa import Cepa
-from modelos.vino import Vino
-
+from integrador import *
 
 class RecursoBodega(Resource):
 
     def get(self, id):
-        bodega = vinoteca.Vinoteca.buscarBodega(id)
+        bodega = Vinoteca.buscarBodega(id)
         if isinstance(bodega, Bodega):
             return json.loads(json.dumps(bodega.convertirAJSONFull())), 200
         else:
@@ -30,6 +25,7 @@ class RecursoBodegas(Resource):
             return json.loads(json.dumps(bodegas_json)), 200
         else:
 <<<<<<< HEAD
+<<<<<<< HEAD
             bodegas = vinoteca.Vinoteca.obtenerBodegas()
         return (
             json.loads(json.dumps(bodegas, default=lambda o: o.convertirAJSON())),
@@ -40,11 +36,15 @@ class RecursoBodegas(Resource):
             return {"error": "No se encontraron bodegas"}, 404
 
 >>>>>>> origin/TFI
+=======
+            return {"error": "No se encontraron bodegas"}, 404
+
+>>>>>>> f8e458ad459d2982b68be198fa930f6102e3afcb
 
 class RecursoCepa(Resource):
 
     def get(self, id):
-        cepa = vinoteca.Vinoteca.buscarCepa(id)
+        cepa = Vinoteca.buscarCepa(id)
         if isinstance(cepa, Cepa):
             return json.loads(json.dumps(cepa.convertirAJSONFull())), 200
         else:
@@ -67,7 +67,7 @@ class RecursoCepas(Resource):
 class RecursoVino(Resource):
 
     def get(self, id):
-        vino = vinoteca.Vinoteca.buscarVino(id)
+        vino = Vinoteca.buscarVino(id)
         if isinstance(vino, Vino):
             return json.loads(json.dumps(vino.convertirAJSONFull())), 200
         else:
