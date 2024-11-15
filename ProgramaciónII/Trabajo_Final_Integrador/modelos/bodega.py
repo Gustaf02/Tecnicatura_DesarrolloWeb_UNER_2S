@@ -18,9 +18,11 @@ class Bodega(EntidadVineria):
         from vinoteca import Vinoteca
         todos_vinos = Vinoteca.obtener_vinos()
         if todos_vinos is not None:
-         vinos_bodega = [vino for vino in todos_vinos if vino.obtenerBodega() and vino.obtenerBodega().obtenerId() == self.id]
-         self.vinos = vinos_bodega
-         return vinos_bodega
+           vinos_bodega = [
+              vino for vino in todos_vinos 
+              if vino.obtenerBodega() and vino.obtenerBodega().obtenerId() == self.id]
+           self.vinos = vinos_bodega
+           return vinos_bodega
         return []
 
 

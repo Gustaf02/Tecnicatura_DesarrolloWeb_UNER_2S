@@ -7,3 +7,6 @@ Integrantes:
 • Montiel, Israel Leonardo 
 • Ortiz, Carlos Gustavo 
 • Prieto, Azucena
+
+Trabajo final integrador en GitHub: 
+https://github.com/Gustaf02/Tecnicatura_DesarrolloWeb_UNER_2S/tree/main/Programaci%C3%B3nII/Trabajo_Final_Integrador
