@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vinoteca Premium</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #800020;
+      --background: #000000;
+      --text: #FFD700;
+      --card-bg: #1a1a1a;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: var(--background);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .navbar {
+      background-color: var(--primary);
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .navbar-brand {
+      color: var(--text);
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .tab {
+      padding: 0.5rem 1rem;
+      background-color: var(--primary);
+      color: var(--text);
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: opacity 0.3s;
+    }
+    .tab:hover {
+      opacity: 0.9;
+    }
+    .tab.active {
+      background-color: var(--text);
+      color: var(--primary);
+    }
+    .content {
+      display: none;
+    }
+    .content.active {
+      display: block;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      color: var(--text);
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+    .card-content {
+      color: #fff;
+    }
+    .search-bar {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 2rem;
+      background-color: var(--card-bg);
+      border: 1px solid var(--primary);
+      color: var(--text);
+      border-radius: 4px;
+    }
+    .sort-controls {
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .sort-controls select {
+      padding: 0.5rem;
+      background-color: var(--card-bg);
+      color: var(--text);
+      border: 1px solid var(--primary);
+      border-radius: 4px;
+    }
+    .details-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: var(--card-bg);
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 600px;
+      width: 90%;
+      position: relative;
+    }
+    .close-modal {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">
+      <i class="fas fa-wine-glass-alt"></i> Vinoteca Premium
+    </a>
+  </nav>
+  <div class="container">
+    <div class="tabs">
+      <button class="tab active" data-tab="vinos">Vinos</button>
+      <button class="tab" data-tab="bodegas">Bodegas</button>
+      <button class="tab" data-tab="cepas">Cepas</button>
+    </div>
+    <div id="vinos" class="content active">
+      <input type="text" class="search-bar" placeholder="Buscar vinos...">
+      <div class="sort-controls">
+        <select id="vinosOrder">
+          <option value="nombre">Ordenar por nombre</option>
+          <option value="bodega">Ordenar por bodega</option>
+        </select>
+        <select id="vinosYear">
+          <option value="">Todos los años</option>
+        </select>
+      </div>
+      <div class="grid" id="vinosGrid"></div>
+    </div>
+    <div id="bodegas" class="content">
+      <input type="text" class="search-bar" placeholder="Buscar bodegas...">
+      <div class="sort-controls">
+        <select id="bodegasOrder">
+          <option value="nombre">Ordenar por nombre</option>
+          <option value="vinos">Ordenar por cantidad de vinos</option>
+        </select>
+      </div>
+      <div class="grid" id="bodegasGrid"></div>
+    </div>
+    <div id="cepas" class="content">
+      <input type="text" class="search-bar" placeholder="Buscar cepas...">
+      <div class="sort-controls">
+        <select id="cepasOrder">
+          <option value="nombre">Ordenar por nombre</option>
+          <option value="vinos">Ordenar por cantidad de vinos</option>
+        </select>
+      </div>
+      <div class="grid" id="cepasGrid"></div>
+    </div>
+  </div>
+  <div class="details-modal">
+    <div class="modal-content">
+      <span class="close-modal">×</span>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+  <script>
+    // Manejo de tabs
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    // Funciones de API
+    const API_BASE = '/api';
+    async function fetchData(endpoint, params = {}) {
+      try {
+        const queryParams = new URLSearchParams();
+        if (params.orden) queryParams.append('orden', params.orden);
+        if (params.reverso) queryParams.append('reverso', params.reverso);
+        if (params.anios) queryParams.append('anios', params.anios);
+        const url = `${API_BASE}/${endpoint}${queryParams.toString() ? '?' + queryParams.toString() : ''}`;
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Network response was not ok');
+        return await response.json();
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        return [];
+      }
+    }
+
+    // Población inicial del selector de años
+    async function populateYearSelect() {
+      const vinos = await fetchData('vinos');
+      const years = new Set();
+      vinos.forEach(vino => {
+        vino.partidas.forEach(year => years.add(year));
+      });
+
+      const yearSelect = document.getElementById('vinosYear');
+      yearSelect.innerHTML = '<option value="">Todos los años</option>';
+      Array.from(years).sort((a, b) => b - a).forEach(year => {
+        const option = document.createElement('option');
+        option.value = year;
+        option.textContent = year;
+        yearSelect.appendChild(option);
+      });
+    }
+
+    // Cargar datos
+    async function loadVinos() {
+      const orderSelect = document.getElementById('vinosOrder');
+      const yearSelect = document.getElementById('vinosYear');
+      const params = {
+        orden: orderSelect.value,
+        anios: yearSelect.value
+      };
+
+      const vinos = await fetchData('vinos', params);
+      const grid = document.getElementById('vinosGrid');
+      grid.innerHTML = '';
+      vinos.forEach(vino => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <h3>${vino.nombre}</h3>
+          <div class="card-content">
+            <p>Bodega: ${vino.bodega}</p>
+            <p>Cepas: ${vino.cepas.join(', ')}</p>
+            <p>Partidas: ${vino.partidas.join(', ')}</p>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    async function loadBodegas() {
+      const orderSelect = document.getElementById('bodegasOrder');
+      const params = {
+        orden: orderSelect.value
+      };
+
+      const bodegas = await fetchData('bodegas', params);
+      const grid = document.getElementById('bodegasGrid');
+      grid.innerHTML = '';
+      bodegas.forEach(bodega => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <h3>${bodega.nombre}</h3>
+          <div class="card-content">
+            <p>Vinos: ${bodega.vinos}</p>
+            <p>Cepas: ${bodega.cepas.join(', ')}</p>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    async function loadCepas() {
+      const orderSelect = document.getElementById('cepasOrder');
+      const params = {
+        orden: orderSelect.value
+      };
+
+      const cepas = await fetchData('cepas', params);
+      const grid = document.getElementById('cepasGrid');
+      grid.innerHTML = '';
+      cepas.forEach(cepa => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <h3>${cepa.nombre}</h3>
+          <div class="card-content">
+            <p>Vinos: ${cepa.vinos}</p>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Event Listeners para ordenamiento y filtrado
+    document.getElementById('vinosOrder').addEventListener('change', loadVinos);
+    document.getElementById('vinosYear').addEventListener('change', loadVinos);
+    document.getElementById('bodegasOrder').addEventListener('change', loadBodegas);
+    document.getElementById('cepasOrder').addEventListener('change', loadCepas);
+
+    // Búsqueda
+    document.querySelectorAll('.search-bar').forEach(searchBar => {
+      searchBar.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        const cards = e.target.parentElement.querySelectorAll('.card');
+
+        cards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          card.style.display = text.includes(searchTerm) ? 'block' : 'none';
+        });
+      });
+    });
+
+    // Inicialización
+    async function initialize() {
+      await populateYearSelect();
+      await loadVinos();
+      await loadBodegas();
+      await loadCepas();
+    }
+    initialize();
+  </script>
+</body>
+</html>
