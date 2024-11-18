@@ -12,6 +12,8 @@ from modelos.vino import Vino
 
 class RecursoBodega(Resource):
 
+
+
     def get(self, id):
         bodega = vinoteca.Vinoteca.buscarBodega(id)
         if isinstance(bodega, Bodega):
